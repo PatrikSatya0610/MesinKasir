@@ -1,4 +1,4 @@
-# Project - MEsinnKasir
+# Project - MesinKasir
 
 Aplikasi kasir merupakan sebuah teknologi modern dalam bentuk program yang membantu proses transaksi penjualan pembelian yang lebih efektif dan akurat.
 
