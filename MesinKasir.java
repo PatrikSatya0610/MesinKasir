@@ -1,4 +1,3 @@
-package Minggu3;
 
 import java.util.Scanner;
 
