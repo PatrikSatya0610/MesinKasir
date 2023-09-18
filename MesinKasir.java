@@ -11,13 +11,13 @@ public class MesinKasir{
         double pembayaran,total_harga,kembalian;
 
         //MENU
-        System.out.println(" ---------------------------");
-        System.out.println("|       LARAVEL COFFEE      |");
-        System.out.println("|           MENU            |");
-        System.out.println("|---------------------------|");
-        System.out.println("|COFFEE :                   |");
-        System.out.println("|   CAPPUCINO : Rp 15.000   |");
-        System.out.println("|   CAPPUCINO : Rp 15.000   |");
+        System.out.println(" --------------------------------");
+        System.out.println("|        LARAVEL COFFEE          |");
+        System.out.println("|             MENU               |");
+        System.out.println("|--------------------------------|");
+        System.out.println("|COFFEE :                        |");
+        System.out.println("|   CAPPUCINO : Rp 15.000        |");
+        System.out.println("|   COFFEE LATTE : Rp 15.000     |");
 
         // INPUT DATA
          System.out.println("Masukkan nama barang : ");
