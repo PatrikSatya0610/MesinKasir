@@ -30,7 +30,7 @@ public class MesinKasir{
         System.out.println("|   VIETNAM DRIP        : Rp 22.000                     |");
         System.out.println("|   V60                 : Rp 22.000                     |");
         System.out.println("|   JAPANESE            : Rp 22.000                     |");
-        System.out.println("|-------------------------------------------------------|");
+        System.out.println(" ------------------------------------------------------- ");
 
         // INPUT DATA
          System.out.println("Masukkan nama barang : ");
