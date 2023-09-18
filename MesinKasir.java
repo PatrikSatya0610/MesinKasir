@@ -12,8 +12,8 @@ public class MesinKasir{
 
         //MENU
         System.out.println(" ---------------------------------------");
-        System.out.println("|               LARAVEL COFFEE          |");
-        System.out.println("|                   MENU                |");
+        System.out.println("|             LARAVEL COFFEE            |");
+        System.out.println("|                 MENU                  |");
         System.out.println("|---------------------------------------|");
         System.out.println("|COFFEE :                               |");
         System.out.println("|   CAPPUCINO           : Rp 15.000     |");
