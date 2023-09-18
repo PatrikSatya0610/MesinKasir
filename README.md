@@ -1,6 +1,9 @@
 # Project - Pengembangan Sistem Kasir Sederhana dengan Java
+
 Anggota :
-    Muhammad Rifqi Rizqullah (2341720091) TI-1A
+    2.  Adinda Merza Devani (2341720046) TI-1A
+    21. Muhammad Rifqi Rizqullah (2341720091) TI-1A
+    23. Patrik Satya Panitis Raharjo (2341720039) TI-1A
     
 
 Deskripsi :
@@ -32,4 +35,4 @@ Ruang Lingkup Proyek :
     •	Memungkinkan kasir untuk melihat laporan penjualan harian.
 
 5	Dokumentasi Pengguna
-    •	Menyediakan dokumentasi detil tentang cara menggunakan sistem kasir, termasuk langkah-langkah dasar dan fitur-fiturnya.
+    •	Menyediakan dokumentasi detil tentang cara menggunakan sistem kasir, termasuk langkah-langkah dasar, spesifikasi, dan fitur-fiturnya.
