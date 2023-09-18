@@ -41,11 +41,11 @@ public class MesinKasir{
          jml_barang = sc.nextInt();
 
         //  PROSES DATA
-            total_harga = harga_barang * jml_barang;
+        total_harga = harga_barang * jml_barang;
         System.out.print("Total Harga : " + total_harga);
         System.out.print("\nMasukkan total pembayaran : ");
         pembayaran = sc.nextDouble();
-            kembalian = pembayaran - total_harga;
+        kembalian = pembayaran - total_harga;
 
         // OUTPUT
         System.out.println("\n\n---- STRUK PEMBELIAN ----");
