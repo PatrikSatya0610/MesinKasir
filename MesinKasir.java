@@ -33,11 +33,11 @@ public class MesinKasir{
         System.out.println(" ------------------------------------------------------- ");
 
         // INPUT DATA
-         System.out.println("Masukkan nama barang : ");
+         System.out.print("Masukkan nama barang : ");
          nama_barang = sc.nextLine();
-         System.out.println("Masukkan harga per item : ");
+         System.out.print("Masukkan harga per item : ");
          harga_barang = sc.nextInt();
-         System.out.println("Masukkan jumlah barang yang dibeli :");
+         System.out.print("Masukkan jumlah barang yang dibeli :");
          jml_barang = sc.nextInt();
 
         //  PROSES DATA
