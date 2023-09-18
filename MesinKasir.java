@@ -11,6 +11,7 @@ public class MesinKasir{
         double pembayaran,total_harga,kembalian;
 
         //MENU
+        System.out.println(" ---------------------------");
         System.out.println("|       LARAVEL COFFEE      |");
         System.out.println("|           MENU            |");
         System.out.println("|---------------------------|");
