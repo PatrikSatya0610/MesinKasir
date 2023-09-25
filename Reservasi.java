@@ -1,27 +1,25 @@
 import java.util.Scanner;
-import java.util.Calendar;
-import java.util.Date;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
+//import java.util.Calendar;
+//import java.util.Date;
+//import java.text.DateFormat;
+//import java.text.SimpleDateFormat;
 import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.time.LocalTime;
-import java.time.format.DateTimeFormatter;
+//import java.time.LocalDateTime;
+//import java.time.LocalTime;
+//import java.time.format.DateTimeFormatter;
 
-public class PelayananCoffeeShop {
+public class Reservasi {
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
-        //LocalDate date = LocalDate.now();
-        Calendar calendar = Calendar.getInstance();
+        LocalDate date = LocalDate.now();
         
         // VARIABEL DAN TIPE DATA
         String nama_pelanggan, nomor_kontak, nama_pegawai;
         int nomor_meja, jumlah_tamu;
-        //LocalDateTime date;
         boolean konfirmasi;
 
         System.out.println(" ------------------------------------------------------- ");
-        System.out.println(" _______________________________________________________|");
+        System.out.println("|_______________________________________________________|");
         System.out.println("|                    MEJA RESERVASI                     |");
         System.out.println("|                     LARAVEL COFFEE                    |");
         System.out.println("|_______________________________________________________|");
@@ -48,6 +46,6 @@ public class PelayananCoffeeShop {
         System.out.println("Nomor Pelanggan\t\t:"+nomor_kontak);
         System.out.println("Nomor Meja\t\t:"+nomor_meja);
         System.out.println("Jumlah Pelanggan\t:"+jumlah_tamu);
-        System.out.println("Tanggal Reservasi\t:" + calendar);  
+        System.out.println("Tanggal Reservasi\t:" + date);  
     }
 }

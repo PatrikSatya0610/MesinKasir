@@ -49,7 +49,7 @@ public class MesinKasir{
 
         // OUTPUT
         System.out.println("\n\n---- STRUK PEMBELIAN ----");
-        System.out.println("Nama Barang\t: " + nama_barang);
+        System.out.println("Nama Barang\t: " + nama_barang +""+ harga_barang);
         System.out.println("Harga per Item\t: " + harga_barang);
         System.out.println("Jumlah Barang\t: " + jml_barang);
         System.out.println("Total Harga\t: " + total_harga);
