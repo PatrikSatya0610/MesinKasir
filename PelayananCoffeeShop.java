@@ -2,20 +2,20 @@ import java.util.Scanner;
 import java.util.Date;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 
 public class PelayananCoffeeShop {
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-        Scanner input =new Scanner(System.in);
-        DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("HH:mm:ss: ");
-        LocalTime localTime = LocalTime.now();
-
+        Scanner input = new Scanner(System.in);
+        LocalDate date = LocalDate.now();
+        
         // VARIABEL DAN TIPE DATA
-        String nama_pelanggan, nomor_kontak, status_reservasi, nama_pegawai, metode_pembayaran, catatan;
-        int nomor_meja, jumlah_tamu, kapasitas, total_harga;
-        DateTimeFormatter tanggal, waktu;
+        String nama_pelanggan, nomor_kontak, nama_pegawai;
+        int nomor_meja, jumlah_tamu;
+        //LocalDateTime date;
         boolean konfirmasi;
 
         System.out.println(" ------------------------------------------------------- ");
@@ -29,5 +29,23 @@ public class PelayananCoffeeShop {
         System.out.println("| | 10 | | 11 | | 12 | | 13 | | 14 | | 15 | | 16 | | 17 |");
         System.out.println("|_______________________________________________________|");
         System.out.println(" _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ ");
+
+        //INPUT DATA
+        System.out.print("Nama Pelanggan\t\t:");
+        nama_pelanggan = input.nextLine();
+        System.out.print("Nomor Pelanggan\t\t:");
+        nomor_kontak = input.nextLine();
+        System.out.print("Nomor Meja\t\t:");
+        nomor_meja = input.nextInt();
+        System.out.print("Jumlah Pelanggan\t:");
+        jumlah_tamu = input.nextInt();
+        
+        System.out.println();
+        System.out.println("***Bukti Reservasi***");
+        System.out.println("Nama Pelanggan\t\t:"+nama_pelanggan);
+        System.out.println("Nomor Pelanggan\t\t:"+nomor_kontak);
+        System.out.println("Nomor Meja\t\t:"+nomor_meja);
+        System.out.println("Jumlah Pelanggan\t:"+jumlah_tamu);
+        System.out.println("Tanggal Reservasi\t:" + date);  
     }
 }
