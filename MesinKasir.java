@@ -15,7 +15,7 @@ public class MesinKasir{
         System.out.println("|                     LARAVEL COFFEE                    |");
         System.out.println("|                          MENU                         |");
         System.out.println("|-------------------------------------------------------|");
-        System.out.println("|COFFEE :                    HOT            ICE         |");
+        System.out.println("| COFFEE :                    HOT            ICE        |");
         System.out.println("|   CAPPUCINO           : Rp 20.000     Rp 22.000       |");
         System.out.println("|   COFFEE LATTE        : Rp 20.000     Rp 22.000       |");
         System.out.println("|   VANILLA LATTE       : Rp 20.000     Rp 22.000       |");
@@ -26,7 +26,7 @@ public class MesinKasir{
         System.out.println("|   CARAMEL MACHIATO    : Rp 20.000     Rp 22.000       |");
         System.out.println("|   COFFEEMILK          :               Rp 20.000       |");
         System.out.println("|                                                       |");
-        System.out.println("|MANUAL BREW :                                          |");
+        System.out.println("| MANUAL BREW :                                         |");
         System.out.println("|   VIETNAM DRIP        : Rp 22.000                     |");
         System.out.println("|   V60                 : Rp 22.000                     |");
         System.out.println("|   JAPANESE            : Rp 22.000                     |");
@@ -60,3 +60,4 @@ public class MesinKasir{
     }
     
 }
+
