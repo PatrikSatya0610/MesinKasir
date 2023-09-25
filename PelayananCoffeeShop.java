@@ -1,4 +1,5 @@
 import java.util.Scanner;
+import java.util.Calendar;
 import java.util.Date;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -10,7 +11,8 @@ import java.time.format.DateTimeFormatter;
 public class PelayananCoffeeShop {
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
-        LocalDate date = LocalDate.now();
+        //LocalDate date = LocalDate.now();
+        Calendar calendar = Calendar.getInstance();
         
         // VARIABEL DAN TIPE DATA
         String nama_pelanggan, nomor_kontak, nama_pegawai;
@@ -46,6 +48,6 @@ public class PelayananCoffeeShop {
         System.out.println("Nomor Pelanggan\t\t:"+nomor_kontak);
         System.out.println("Nomor Meja\t\t:"+nomor_meja);
         System.out.println("Jumlah Pelanggan\t:"+jumlah_tamu);
-        System.out.println("Tanggal Reservasi\t:" + date);  
+        System.out.println("Tanggal Reservasi\t:" + calendar);  
     }
 }
