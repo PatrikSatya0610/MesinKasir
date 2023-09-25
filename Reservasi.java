@@ -16,7 +16,7 @@ public class Reservasi {
         // VARIABEL DAN TIPE DATA
         String nama_pelanggan, nomor_kontak, nama_pegawai;
         int nomor_meja, jumlah_tamu;
-        boolean konfirmasi;
+        // boolean konfirmasi;
 
         System.out.println(" ------------------------------------------------------- ");
         System.out.println("|_______________________________________________________|");
@@ -31,6 +31,8 @@ public class Reservasi {
         System.out.println(" _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ ");
 
         //INPUT DATA
+        System.out.print("Nama Kasir\t\t:");
+        nama_pegawai = input.nextLine();
         System.out.print("Nama Pelanggan\t\t:");
         nama_pelanggan = input.nextLine();
         System.out.print("Nomor Pelanggan\t\t:");
@@ -46,6 +48,7 @@ public class Reservasi {
         System.out.println("Nomor Pelanggan\t\t:"+nomor_kontak);
         System.out.println("Nomor Meja\t\t:"+nomor_meja);
         System.out.println("Jumlah Pelanggan\t:"+jumlah_tamu);
-        System.out.println("Tanggal Reservasi\t:" + date);  
+        System.out.println("Tanggal Reservasi\t:" + date);
+        System.out.print("Nama Kasir\t\t:"+nama_pegawai);
     }
 }
