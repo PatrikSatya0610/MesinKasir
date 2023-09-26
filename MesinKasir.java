@@ -6,7 +6,7 @@ public class MesinKasir{
         Scanner sc = new Scanner(System.in);
 
         // VARIABEL DAN JENIS DATA
-        String nama_barang, pelanggan;
+        String nama_barang, pelanggan, catatan;
         int jml_barang, harga_barang;
         double pembayaran,total_harga,kembalian;
 
@@ -41,6 +41,8 @@ public class MesinKasir{
          harga_barang = sc.nextInt();
          System.out.print("Masukkan jumlah barang yang dibeli :");
          jml_barang = sc.nextInt();
+         System.out.print("Masukkan catatan pelanggan :");
+         catatan = sc.nextLine();
 
         //  PROSES DATA
         total_harga = harga_barang * jml_barang;
@@ -51,7 +53,9 @@ public class MesinKasir{
 
         // OUTPUT
         System.out.println("\n\n---- STRUK PEMBELIAN ----");
+        System.out.println("Nama Pelanggan\t: " + pelanggan);
         System.out.println("Nama Barang\t: " + nama_barang);
+        System.out.println("Catatan\t: " + catatan);
         System.out.println("Harga per Item\t: " + harga_barang);
         System.out.println("\nJumlah Barang\t: " + jml_barang);
         System.out.println("Total Harga\t: " + total_harga);
@@ -59,7 +63,9 @@ public class MesinKasir{
         System.out.println("Kembalian\t: " + kembalian);
         System.out.println("\n---- TERIMA KASIH ----");
 
-
+        // Tambahan note atau request
+        // Diskon & Voucher
+        // Biaya Charge/Penalty
     }
     
 }
