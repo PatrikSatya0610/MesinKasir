@@ -7,12 +7,8 @@ public class MesinKasir{
 
         // VARIABEL DAN JENIS DATA
         String nama_barang, pelanggan, catatan;
-        int jml_barang, harga_barang;
-        double total_harga,kembalian;
-        
-        // VARIABEL DAN JENIS DATA JENIS PEMBAYARAN
-        double pajak;
-        int pilih, pembayaran;
+        int jml_barang, harga_barang,pilih;
+        double total_harga,kembalian=0,pajak,pembayaran=0 ;
 
         //MENU
         System.out.println(" -------------------------------------------------------");
@@ -68,19 +64,19 @@ public class MesinKasir{
             // TUNAI 
             case 1:
                 System.out.print("Masukkan jumlah yang akan dibayar : ");
-                pembayaran = sc.nextInt();
+                pembayaran = sc.nextDouble();
                 kembalian = pembayaran - total_harga;
                 break;
             // DEBIT
             case 2 :
                 System.out.print("Masukkan jumlah yang akan dibayar : ");
-                pembayaran = sc.nextInt();
+                pembayaran = sc.nextDouble();
                 total_harga += 2500;
                 kembalian = pembayaran - total_harga;
             // E-Money
             case 3 :
                 System.out.print("Masukkan jumlah yang akan dibayar : ");
-                pembayaran = sc.nextInt();
+                pembayaran = sc.nextDouble();
                 total_harga *= 0.1;
                 kembalian = pembayaran - total_harga;
                 break;
