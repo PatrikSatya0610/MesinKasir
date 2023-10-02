@@ -8,7 +8,10 @@ public class MesinKasir{
         // VARIABEL DAN JENIS DATA
         String nama_barang, pelanggan, catatan;
         int jml_barang, harga_barang,pilih;
-        double total_harga,kembalian=0,pajak,pembayaran=0 ;
+        double total_harga,kembalian=0,pajak1,pajak2,pembayaran=0;
+
+        pajak1= 0.05;
+        pajak2= 0.01;
 
         //MENU
         System.out.println(" -------------------------------------------------------");
@@ -33,20 +36,22 @@ public class MesinKasir{
         System.out.println(" ------------------------------------------------------- ");
 
         // INPUT DATA STRUK PEMBAYARAN
-         System.out.println("Masukkan nama pelanggan :");
+         System.out.print("Masukkan nama pelanggan :");
          pelanggan = sc.nextLine();
          System.out.print("Masukkan nama barang : ");
          nama_barang = sc.nextLine();
+         System.out.println("Masukkan catatan pelanggan :");
+         catatan = sc.nextLine();
          System.out.print("Masukkan harga per item : ");
          harga_barang = sc.nextInt();
          System.out.print("Masukkan jumlah barang yang dibeli :");
          jml_barang = sc.nextInt();
-         System.out.println("Masukkan catatan pelanggan :");
-         catatan = sc.nextLine();
+         System.out.println("");
 
         //  PROSES DATA STRUK PEMBAYARAN
         total_harga = harga_barang * jml_barang;
         System.out.print("Total Harga : " + total_harga);
+        System.out.println("");
        
         // PROSES DATA JENIS PEMBAYARAN
         System.out.println("*********************************");
@@ -63,21 +68,22 @@ public class MesinKasir{
         switch (pilih) {
             // TUNAI 
             case 1:
-                System.out.print("Masukkan jumlah yang akan dibayar : ");
+                System.out.print("Masukkan jumlah yang dibayar : ");
                 pembayaran = sc.nextDouble();
+                total_harga = harga_barang;
                 kembalian = pembayaran - total_harga;
                 break;
             // DEBIT
             case 2 :
-                System.out.print("Masukkan jumlah yang akan dibayar : ");
+                System.out.print("Masukkan jumlah yang dibayar : ");
                 pembayaran = sc.nextDouble();
-                total_harga += 2500;
+                total_harga = (harga_barang * pajak1)+harga_barang;
                 kembalian = pembayaran - total_harga;
             // E-Money
             case 3 :
-                System.out.print("Masukkan jumlah yang akan dibayar : ");
+                System.out.print("Masukkan jumlah yang dibayar : ");
                 pembayaran = sc.nextDouble();
-                total_harga *= 0.1;
+                total_harga =(harga_barang * pajak2)+harga_barang;
                 kembalian = pembayaran - total_harga;
                 break;
             default:
@@ -86,14 +92,15 @@ public class MesinKasir{
         }
 
         // OUTPUT STRUK PEMBAYARAN
+        System.out.println("");
         System.out.println("\n\n---- STRUK PEMBELIAN ----");
         System.out.println("Nama Pelanggan\t: " + pelanggan);
         System.out.println("Nama Barang\t: " + nama_barang);
-        System.out.println("Catatan\t: " + catatan);
+        System.out.println("Catatan\t\t: " + catatan);
         System.out.println("Harga per Item\t: " + harga_barang);
         System.out.println("\nJumlah Barang\t: " + jml_barang);
         System.out.println("Total Harga\t: " + total_harga);
-        System.out.println("Tunai\t\t: " + pembayaran);
+        // System.out.println("Tunai\t\t: " + pembayaran);
         System.out.println("Kembalian\t: " + kembalian);
         System.out.println("\n---- TERIMA KASIH ----");
 
