@@ -15,7 +15,7 @@ public class Reservasi {
         
         // VARIABEL DAN TIPE DATA
         String nama_pelanggan, nomor_kontak, nama_pegawai;
-        int nomor_meja, jumlah_tamu,pilih;
+        int nomor_meja, jumlah_tamu;
 
         // boolean konfirmasi;
 
@@ -52,9 +52,9 @@ public class Reservasi {
         System.out.println("|_______________________________________________________|");
         System.out.println(" _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ ");
         System.out.print("Pilih Nomor Meja :");
-        pilih = input.nextInt();
+        nomor_meja = input.nextInt();
 
-        switch (pilih) {
+        switch (nomor_meja) {
             case 1:
                 System.out.println("Meja 1");
                 break;
@@ -122,7 +122,7 @@ public class Reservasi {
         System.out.println("---- BUKTI RESERVASI ----");
         System.out.println("Nama Pelanggan\t\t: "+nama_pelanggan);
         System.out.println("Nomor Pelanggan\t\t: "+nomor_kontak);
-        System.out.println("Nomor Meja\t\t: "+ pilih);
+        System.out.println("Nomor Meja\t\t: "+ nomor_meja);
         System.out.println("Jumlah Pelanggan\t: "+jumlah_tamu);
         System.out.println("Tanggal Reservasi\t: " + date);
         System.out.print("Nama Kasir\t\t: "+nama_pegawai);
