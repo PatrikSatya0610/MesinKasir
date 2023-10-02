@@ -107,7 +107,7 @@ public class Reservasi {
                 System.out.println("Meja 17");
                 break;
             default:
-            System.out.println("Silahkan Nomor Meja Yang Tersedia");
+            System.out.println("Silahkan Pilih Nomor Meja Yang Tersedia");
                 break;
         }
         System.out.print("Jumlah Pelanggan\t: ");
