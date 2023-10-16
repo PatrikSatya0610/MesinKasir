@@ -1,17 +1,22 @@
 import java.util.Scanner;
 
 public class login{
-
     public static void main(String []args){
         Scanner input = new Scanner(System.in);
 
-        String username;
-        int password;
+        String username, password, secretUsername = "kelompok3oke", secretPassword = "123456";
 
-        System.out.println("*** LOGIN ***");
-        System.out.print("Username\t:");
+        System.out.print("Enter Username : ");
         username = input.nextLine();
-        System.out.print("Password\t:");
-        password = input.nextInt();
+        System.out.print("Enter Password : ");
+        password = input.nextLine();
+
+        if (username.equals(secretUsername) && password.equals(secretPassword)) {
+            System.out.println("Login sukses");
+        } else {
+            System.out.println("Login Gagal");
+            System.exit(0);
+        }
+    
     }
 }
