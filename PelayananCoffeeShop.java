@@ -29,5 +29,15 @@ public class PelayananCoffeeShop {
         System.out.println("| | 10 | | 11 | | 12 | | 13 | | 14 | | 15 | | 16 | | 17 |");
         System.out.println("|_______________________________________________________|");
         System.out.println(" _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ ");
+
+        // INPUT DATA 
+        System.out.println("Nomor meja yang dipesan ");
+        nomor_meja = input.nextInt();
+        System.out.println("Jumlah meja yang dipesan ");
+        jumlah_tamu = input.nextInt();
+
+        System.out.println("Masukkan nama pelanggan ");
+        nama_pelanggan = input.nextLine();
+        
     }
 }

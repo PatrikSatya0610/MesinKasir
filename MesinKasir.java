@@ -6,12 +6,12 @@ public class MesinKasir{
         Scanner sc = new Scanner(System.in);
 
         // VARIABEL DAN JENIS DATA
-        String nama_barang;
-        int jml_barang, harga_barang;
-        double pembayaran,total_harga,kembalian;
+        String nama_barang, catatan, konfirmasi;
+        int jml_barang=0, harga_barang=0;
+        double pembayaran,total_harga=0,kembalian;
 
         //MENU
-        System.out.println(" -------------------------------------------------------");
+        System.out.println(" ------------------------------------------------------- ");
         System.out.println("|                     LARAVEL COFFEE                    |");
         System.out.println("|                          MENU                         |");
         System.out.println("|-------------------------------------------------------|");
@@ -33,15 +33,31 @@ public class MesinKasir{
         System.out.println(" ------------------------------------------------------- ");
 
         // INPUT DATA
-         System.out.print("Masukkan nama barang : ");
-         nama_barang = sc.nextLine();
-         System.out.print("Masukkan harga per item : ");
-         harga_barang = sc.nextInt();
-         System.out.print("Masukkan jumlah barang yang dibeli :");
-         jml_barang = sc.nextInt();
+        do{
+            System.out.println("---------- Pilih Fitur ----------");
+            System.out.println("| 1. Menu                       |");
+            System.out.println("| 2. Reservasi                  |");
+            System.out.println("|                               |");
+            System.out.println("|                               |");
+            System.out.println("---------------------------------");
+            konfirmasi = sc.next();
+            if (konfirmasi.equalsIgnoreCase("1")) {
+            
+                System.out.print("Masukkan nama barang :\n");
+                    nama_barang = sc.nextLine();
+                    System.out.println("Masukkan catatan pelanggan :");
+                    catatan = sc.nextLine();
+                    System.out.print("Masukkan harga per item :");
+                    harga_barang = sc.nextInt();
+                    System.out.print("Masukkan jumlah barang yang dibeli :");
+                    jml_barang = sc.nextInt();
+                    System.out.println("");
+            }
+            
+            total_harga = harga_barang * jml_barang;
+        }while ();
 
         //  PROSES DATA
-        total_harga = harga_barang * jml_barang;
         System.out.print("Total Harga : " + total_harga);
         System.out.print("\nMasukkan total pembayaran : ");
         pembayaran = sc.nextDouble();
@@ -56,6 +72,7 @@ public class MesinKasir{
         System.out.println("Tunai\t\t: " + pembayaran);
         System.out.println("Kembalian\t: " + kembalian);
         System.out.println("\n---- TERIMA KASIH ----");
+
 
     }
     
