@@ -6,9 +6,9 @@ public class MesinKasir{
         Scanner sc = new Scanner(System.in);
 
         // VARIABEL DAN JENIS DATA
-        String nama_barang, pelanggan, catatan;
+        String nama_barang, pelanggan, catatan, voucher;
         int jml_barang, harga_barang,pilih;
-        double total_harga,kembalian=0,pajak,pembayaran=0 ;
+        double total_harga,kembalian=0,pajak,pembayaran=0, diskon=0;
 
         //MENU
         System.out.println(" -------------------------------------------------------");
@@ -39,17 +39,34 @@ public class MesinKasir{
          nama_barang = sc.nextLine();
          System.out.print("Masukkan harga per item : ");
          harga_barang = sc.nextInt();
-         System.out.print("Masukkan jumlah barang yang dibeli :");
+         System.out.print("Masukkan jumlah barang yang dibeli : ");
          jml_barang = sc.nextInt();
-         System.out.println("Masukkan catatan pelanggan :");
+         System.out.println("Masukkan catatan pelanggan : ");
          catatan = sc.nextLine();
 
         //  PROSES DATA STRUK PEMBAYARAN
         total_harga = harga_barang * jml_barang;
-        System.out.print("Total Harga : " + total_harga);
-       
+        System.out.println("Total Harga : " + total_harga);
+
+         // PROSES DATA VOUCHER
+        System.out.println("Masukkan Kode Voucher : ");
+        voucher = sc.nextLine();
+            if (voucher.equals("LRVL03")){
+                if (total_harga >= 100000){
+                    diskon = 0.25;
+                    System.out.println("Selamat Anda mendapatkan potongan harga sebesar 25%");
+                }else 
+                    diskon = 0.1;
+                    System.out.println("Selamat Anda mendapatkan potongan harga sebesar 10%");
+            }else 
+                System.out.println("Kode Voucher Tidak Tersedia");
+
+        total_harga = total_harga - (total_harga * diskon);
+        System.out.print("Total Harga = " + total_harga);
+        
+
         // PROSES DATA JENIS PEMBAYARAN
-        System.out.println("*********************************");
+        System.out.println("\n\n*********************************");
         System.out.println("---------------------------------");
         System.out.println("Jenis Pembayaran");
         System.out.println("1. Tunai    ");
@@ -57,7 +74,7 @@ public class MesinKasir{
         System.out.println("3. E-Money  ");
         System.out.println("---------------------------------");
         System.out.println("*********************************");
-        System.out.println(" Pilih Jenis Pembayaran ");
+        System.out.println(" Pilih Jenis Pembayaran : ");
         pilih = sc.nextInt();
 
         switch (pilih) {
@@ -73,18 +90,19 @@ public class MesinKasir{
                 pembayaran = sc.nextDouble();
                 total_harga += 2500;
                 kembalian = pembayaran - total_harga;
+                break;
             // E-Money
             case 3 :
                 System.out.print("Masukkan jumlah yang akan dibayar : ");
                 pembayaran = sc.nextDouble();
-                total_harga *= 0.1;
+                total_harga = total_harga + (total_harga*0.1);
                 kembalian = pembayaran - total_harga;
                 break;
             default:
                 System.out.println("Maaf, Silahkan pilih angka yang sesuai.");
                 break;
         }
-
+         
         // OUTPUT STRUK PEMBAYARAN
         System.out.println("\n\n---- STRUK PEMBELIAN ----");
         System.out.println("Nama Pelanggan\t: " + pelanggan);
@@ -97,10 +115,10 @@ public class MesinKasir{
         System.out.println("Kembalian\t: " + kembalian);
         System.out.println("\n---- TERIMA KASIH ----");
 
-        // Tambahan note atau request
-        // Diskon & Voucher
-        // Biaya Charge/Penalty
+ 
     }
     
 }
-
+       // Tambahan note atau request
+        // Diskon & Voucher
+        // Biaya Charge/Penalty

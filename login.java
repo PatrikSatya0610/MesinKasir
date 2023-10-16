@@ -16,7 +16,6 @@ public class login{
         } else {
             System.out.println("Login Gagal");
             System.exit(0);
-        }
-    
+        }     
     }
 }
