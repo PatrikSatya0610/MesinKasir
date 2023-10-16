@@ -6,18 +6,16 @@ public class MesinKasir{
         Scanner sc = new Scanner(System.in);
 
         // VARIABEL DAN JENIS DATA
-<<<<<<< HEAD
+
         String nama_barang, catatan, konfirmasi;
         int jml_barang=0, harga_barang=0;
         double pembayaran,total_harga=0,kembalian;
-=======
+
         String nama_barang, pelanggan, catatan;
         int jml_barang, harga_barang,pilih;
         double total_harga,kembalian=0,pajak1,pajak2,pembayaran=0;
-
         pajak1= 0.05;
         pajak2= 0.01;
->>>>>>> 1d08457988b8512ad2a9e93895780636a35f38aa
 
         //MENU
         System.out.println(" ------------------------------------------------------- ");
@@ -41,7 +39,6 @@ public class MesinKasir{
         System.out.println("|   JAPANESE            : Rp 22.000                     |");
         System.out.println(" ------------------------------------------------------- ");
 
-<<<<<<< HEAD
         // INPUT DATA
         do{
             System.out.println("---------- Pilih Fitur ----------");
@@ -68,23 +65,13 @@ public class MesinKasir{
         }while ();
 
         //  PROSES DATA
-=======
+
         // INPUT DATA STRUK PEMBAYARAN
          System.out.print("Masukkan nama pelanggan :");
          pelanggan = sc.nextLine();
-         System.out.print("Masukkan nama barang : ");
-         nama_barang = sc.nextLine();
-         System.out.println("Masukkan catatan pelanggan :");
-         catatan = sc.nextLine();
-         System.out.print("Masukkan harga per item : ");
-         harga_barang = sc.nextInt();
-         System.out.print("Masukkan jumlah barang yang dibeli :");
-         jml_barang = sc.nextInt();
-         System.out.println("");
 
         //  PROSES DATA STRUK PEMBAYARAN
         total_harga = harga_barang * jml_barang;
->>>>>>> 1d08457988b8512ad2a9e93895780636a35f38aa
         System.out.print("Total Harga : " + total_harga);
         System.out.println("");
        
@@ -139,13 +126,9 @@ public class MesinKasir{
         System.out.println("Kembalian\t: " + kembalian);
         System.out.println("\n---- TERIMA KASIH ----");
 
-<<<<<<< HEAD
-
-=======
         // Tambahan note atau request
         // Diskon & Voucher
         // Biaya Charge/Penalty
->>>>>>> 1d08457988b8512ad2a9e93895780636a35f38aa
     }
     
 }
