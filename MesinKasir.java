@@ -62,7 +62,7 @@ public class MesinKasir{
             }
             
             total_harga = harga_barang * jml_barang;
-        }while ();
+        }while () ;
 
         //  PROSES DATA
 
