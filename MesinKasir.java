@@ -14,7 +14,7 @@ public class MesinKasir{
         // int jml_barang=0, harga_barang=0;
         // double pembayaran,total_harga=0,kembalian;
 
-        String nama_barang, pelanggan, catatan,konfirmasi,voucher;
+        String nama_barang = "", pelanggan, catatan,konfirmasi,voucher;
         int jml_barang=0, harga_barang=0,pilih;
         double total_harga,kembalian=0,pajak1,pajak2,pembayaran=0, diskon=0;
         pajak1= 0.05;
@@ -167,7 +167,7 @@ public class MesinKasir{
         System.out.println("");
         System.out.println("\n\n---- STRUK PEMBELIAN ----");
         System.out.println("Nama Pelanggan\t: " + pelanggan);
-        // System.out.println("Nama Barang\t: " + nama_barang);
+        System.out.println("Nama Barang\t: " + nama_barang);
         // System.out.println("Catatan\t\t: " + catatan);
         System.out.println("Harga per Item\t: " + harga_barang);
         System.out.println("\nJumlah Barang\t: " + jml_barang);
