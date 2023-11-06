@@ -1,24 +1,23 @@
 
+import java.time.LocalDate;
 import java.util.Scanner;
 
 public class MesinKasir{
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
+        LocalDate date = LocalDate.now();
 
-        // VARIABEL DAN JENIS DATA
-        // String nama_barang, pelanggan, catatan, voucher;
-        // int jml_barang, harga_barang,pilih;
-        // double total_harga,kembalian=0,pajak,pembayaran=0, diskon=0;
-
-        // String nama_barang, catatan, konfirmasi;
-        // int jml_barang=0, harga_barang=0;
-        // double pembayaran,total_harga=0,kembalian;
-
-        String nama_barang = "", pelanggan, catatan,konfirmasi,voucher;
+        // VARIABEL DAN TIPE DATA UTAMA
+        String nama_barang = "", pelanggan, catatan="",konfirmasi,voucher;
         int jml_barang=0, harga_barang=0,pilih;
         double total_harga,kembalian=0,pajak1,pajak2,pembayaran=0, diskon=0;
         pajak1= 0.05;
         pajak2= 0.01;
+        
+        // VARIABEL DAN TIPE DATA RESERVASI
+        String nama_pelanggan, nomor_kontak, nama_pegawai;
+        int jumlah_tamu = 0;
+        int[] nomor_meja = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17};
 
         String username, password, secretUsername = "admin", secretPassword = "123456";
         for (int Try = 1; Try <= 3; Try++) {
@@ -80,6 +79,53 @@ public class MesinKasir{
                 System.out.print("Masukkan jumlah barang yang dibeli :");
                 jml_barang = sc.nextInt();
                 System.out.println("");
+            }else if(konfirmasi.equalsIgnoreCase("2")){
+
+                System.out.print("Nama Kasir\t\t: ");
+                nama_pegawai = sc.nextLine();
+                System.out.print("Nama Pelanggan\t\t: ");
+                nama_pelanggan = sc.nextLine();
+                System.out.print("Nomor Pelanggan\t\t: ");
+                nomor_kontak = sc.nextLine();
+        
+                System.out.println(" ------------------------------------------------------- ");
+                System.out.println("|_______________________________________________________|");
+                System.out.println("|                    MEJA RESERVASI                     |");
+                System.out.println("|                    LARAVEL COFFEE                     |");
+                System.out.println("|_______________________________________________________|");
+                System.out.println("|  ___   ___   ___   ___   ___   ___   ___   ___   ___  |");
+                System.out.println("| | 1 | | 2 | | 3 | | 4 | | 5 | | 6 | | 7 | | 8 | | 9 | |");
+                System.out.println("|  ____   ____   ____   ____   ____   ____   ____   ____|");
+                System.out.println("| | 10 | | 11 | | 12 | | 13 | | 14 | | 15 | | 16 | | 17 |");
+                System.out.println("|_______________________________________________________|");
+                System.out.println(" _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ ");
+                System.out.print("Pilih Nomor Meja :");
+        
+                int pilihMeja = sc.nextInt();
+        
+                // memeriksa ketersediaan meja 
+                if (pilihMeja >= 1 && pilihMeja <= nomor_meja.length) {
+                    System.out.println("Meja " + pilihMeja);
+                } else {
+                    System.out.println("Silahkan Pilih Nomor Meja Yang Tersedia");
+                }
+        
+                System.out.print("Jumlah Pelanggan\t: ");
+                jumlah_tamu = sc.nextInt();
+                if (jumlah_tamu<= 5) {
+                    System.out.println("Jumlah Tamu Yang akan duduk :"+jumlah_tamu);      
+                }else{
+                    System.out.println("Mohon Maaf Kapasistas Tempat duduk Terlalu banyak");
+                }
+            
+                System.out.println();
+                System.out.println("---- BUKTI RESERVASI ----");
+                System.out.println("Nama Pelanggan\t\t: "+nama_pelanggan);
+                System.out.println("Nomor Pelanggan\t\t: "+nomor_kontak);
+                System.out.println("Nomor Meja\t\t: "+ pilihMeja);
+                System.out.println("Jumlah Pelanggan\t: "+jumlah_tamu);
+                System.out.println("Tanggal Reservasi\t: " + date);
+                System.out.print("Nama Kasir\t\t: "+nama_pegawai);
             }else if(konfirmasi.equalsIgnoreCase("9")){
                 break;
             }
@@ -92,15 +138,6 @@ public class MesinKasir{
         // INPUT DATA STRUK PEMBAYARAN
          System.out.print("Masukkan nama pelanggan :");
          pelanggan = sc.next();
-
-        //  System.out.print("Masukkan nama barang : ");
-        //  nama_barang = sc.nextLine();
-        //  System.out.print("Masukkan harga per item : ");
-        //  harga_barang = sc.nextInt();
-        //  System.out.print("Masukkan jumlah barang yang dibeli : ");
-        //  jml_barang = sc.nextInt();
-        //  System.out.println("Masukkan catatan pelanggan : ");
-        //  catatan = sc.nextLine();
 
         //  PROSES DATA STRUK PEMBAYARAN
         total_harga = harga_barang * jml_barang;
@@ -140,7 +177,7 @@ public class MesinKasir{
             case 1:
                 System.out.print("Masukkan jumlah yang dibayar : ");
                 pembayaran = sc.nextDouble();
-                total_harga = total_harga;
+                total_harga = harga_barang * jml_barang;
                 kembalian = pembayaran - total_harga;
                 break;
             // DEBIT
@@ -168,11 +205,10 @@ public class MesinKasir{
         System.out.println("\n\n---- STRUK PEMBELIAN ----");
         System.out.println("Nama Pelanggan\t: " + pelanggan);
         System.out.println("Nama Barang\t: " + nama_barang);
-        // System.out.println("Catatan\t\t: " + catatan);
+        System.out.println("Catatan\t\t: " + catatan);
         System.out.println("Harga per Item\t: " + harga_barang);
         System.out.println("\nJumlah Barang\t: " + jml_barang);
         System.out.println("Total Harga\t: " + total_harga);
-        // System.out.println("Tunai\t\t: " + pembayaran);
         System.out.println("Kembalian\t: " + kembalian);
         System.out.println("\n---- TERIMA KASIH ----");
 
