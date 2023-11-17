@@ -74,6 +74,7 @@ public class MesinKasir{
                 nama_barang = sc.next();
                 System.out.print("Masukkan catatan pelanggan :");
                 catatan = sc.next();
+                sc.next();
                 System.out.print("Masukkan harga per item : ");
                 harga_barang = sc.nextInt();
                 System.out.print("Masukkan jumlah barang yang dibeli :");
@@ -161,7 +162,7 @@ public class MesinKasir{
         System.out.print("Total Harga = " + total_harga);
        
         // PROSES DATA JENIS PEMBAYARAN
-        System.out.println("\n\n*********************************");
+        System.out.println("\n\n*****************************");
         System.out.println("---------------------------------");
         System.out.println("Jenis Pembayaran");
         System.out.println("1. Tunai    ");
@@ -184,15 +185,14 @@ public class MesinKasir{
             case 2 :
                 System.out.print("Masukkan jumlah yang dibayar : ");
                 pembayaran = sc.nextDouble();
-                total_harga = (harga_barang * pajak1)+harga_barang;
+                total_harga = (total_harga * pajak1)+total_harga;
                 kembalian = pembayaran - total_harga;
                 break;
             // E-Money
             case 3 :
                 System.out.print("Masukkan jumlah yang dibayar : ");
                 pembayaran = sc.nextDouble();
-                total_harga = total_harga + (total_harga*0.1);
-                total_harga =(harga_barang * pajak2)+harga_barang;
+                total_harga =(total_harga * pajak2)+total_harga;
                 kembalian = pembayaran - total_harga;
                 break;
             default:
