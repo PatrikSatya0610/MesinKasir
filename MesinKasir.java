@@ -10,9 +10,16 @@ public class MesinKasir{
         // VARIABEL DAN TIPE DATA UTAMA
         String nama_barang = "", pelanggan, catatan="",konfirmasi,voucher;
         int jml_barang=0, harga_barang=0,pilih;
-        double total_harga,kembalian=0,pajak1,pajak2,pembayaran=0, diskon=0;
+        double total_harga=0,kembalian=0,pajak1,pajak2,pembayaran=0, diskon=0;
         pajak1= 0.05;
         pajak2= 0.01;
+
+        // VARIABEL DAN TIPE DATA MENU
+        String menu= "";
+        int menu_item ;
+        String suhu="";
+        int input_menu=0;
+        int harga_menu[] ={20000,22000,17000,15000};
         
         // VARIABEL DAN TIPE DATA RESERVASI
         String nama_pelanggan, nomor_kontak, nama_pegawai;
@@ -42,20 +49,20 @@ public class MesinKasir{
         System.out.println("|                          MENU                         |");
         System.out.println("|-------------------------------------------------------|");
         System.out.println("|COFFEE :                    HOT            ICE         |");
-        System.out.println("|   CAPPUCINO           : Rp 20.000     Rp 22.000       |");
-        System.out.println("|   COFFEE LATTE        : Rp 20.000     Rp 22.000       |");
-        System.out.println("|   VANILLA LATTE       : Rp 20.000     Rp 22.000       |");
-        System.out.println("|   HAZELNUT LATTE      : Rp 20.000     Rp 22.000       |");
-        System.out.println("|   STRAWBERY LATTE     : Rp 20.000     Rp 22.000       |");
-        System.out.println("|   AMERICANO           : Rp 15.000     Rp 17.000       |");
-        System.out.println("|   PICCOLO LATTE       : Rp 15.000                     |");
-        System.out.println("|   CARAMEL MACHIATO    : Rp 20.000     Rp 22.000       |");
-        System.out.println("|   COFFEEMILK          :               Rp 20.000       |");
+        System.out.println("|   1.CAPPUCINO           : Rp 20.000     Rp 22.000     |");
+        System.out.println("|   2.COFFEE LATTE        : Rp 20.000     Rp 22.000     |");
+        System.out.println("|   3.VANILLA LATTE       : Rp 20.000     Rp 22.000     |");
+        System.out.println("|   4.HAZELNUT LATTE      : Rp 20.000     Rp 22.000     |");
+        System.out.println("|   5.STRAWBERY LATTE     : Rp 20.000     Rp 22.000     |");
+        System.out.println("|   6.AMERICANO           : Rp 15.000     Rp 17.000     |");
+        System.out.println("|   7.PICCOLO LATTE       : Rp 15.000                   |");
+        System.out.println("|   8.CARAMEL MACHIATO    : Rp 20.000     Rp 22.000     |");
+        System.out.println("|   9.COFFEEMILK          :               Rp 20.000     |");
         System.out.println("|                                                       |");
         System.out.println("|MANUAL BREW :                                          |");
-        System.out.println("|   VIETNAM DRIP        : Rp 22.000                     |");
-        System.out.println("|   V60                 : Rp 22.000                     |");
-        System.out.println("|   JAPANESE            : Rp 22.000                     |");
+        System.out.println("|   10.VIETNAM DRIP        : Rp 22.000                  |");
+        System.out.println("|   11.V60                 : Rp 22.000                  |");
+        System.out.println("|   12.JAPANESE            : Rp 22.000                  |");
         System.out.println(" ------------------------------------------------------- ");
 
         // INPUT DATA
@@ -68,18 +75,59 @@ public class MesinKasir{
             System.out.println("|                               |");
             System.out.println("---------------------------------");
             konfirmasi = sc.next();
+           
             if (konfirmasi.equalsIgnoreCase("1")) {
             
-                System.out.print("Masukkan nama barang :");
-                nama_barang = sc.next();
-                System.out.print("Masukkan catatan pelanggan :");
-                catatan = sc.next();
-                sc.next();
-                System.out.print("Masukkan harga per item : ");
-                harga_barang = sc.nextInt();
-                System.out.print("Masukkan jumlah barang yang dibeli :");
-                jml_barang = sc.nextInt();
-                System.out.println("");
+                // System.out.print("Masukkan nama barang :");
+                // nama_barang = sc.next();
+                // System.out.print("Masukkan catatan pelanggan :");
+                // catatan = sc.next();
+                // sc.next();
+                // System.out.print("Masukkan harga per item : ");
+                // harga_barang = sc.nextInt();
+                // System.out.print("Masukkan jumlah barang yang dibeli :");
+                // jml_barang = sc.nextInt();
+                // System.out.println("");
+                for (String a = "Y"; a.equals("Y")||a.equals("y"); )
+                {
+                    System.out.print ("Masukkan Nomor Pesanan : ");
+                    menu_item = sc.nextInt();
+        
+                    System.out.print("Masukkan Banyak Pesanan : ");
+                    jml_barang = sc.nextInt();
+                    if (input_menu == 1)
+                    {
+                        menu = "Cappucino";
+                        System.out.println("Ingin Hot / Ice?");
+                        suhu = sc.next();
+                        if (suhu.equalsIgnoreCase("hot")) {
+                            System.out.println("Cappucino Hot");
+                            total_harga= harga_menu[0] * jml_barang;
+                        }else if (suhu.equalsIgnoreCase("ice")){
+                            System.out.println("Cappucino Ice");
+                            total_harga= harga_menu[1] * jml_barang;
+                        }
+                        System.out.println("Hot / Ice");
+                        System.out.println("Menu Pesanan Anda : " + menu +"    x"+ jml_barang+"   |  Rp. "+ total_harga);
+                    }else if(input_menu == 2){
+                        menu = "Coffe Latte";
+                        System.out.println("Ingin Hot / Ice?");
+                        suhu = sc.next();
+                        if (suhu.equalsIgnoreCase("hot")) {
+                            System.out.println("Coffee Latte Hot");
+                            total_harga= harga_menu[0] * jml_barang;
+                        }else if (suhu.equalsIgnoreCase("ice")){
+                            System.out.println("Coffee latte Ice");
+                            total_harga= harga_menu[1] * jml_barang;
+                        }
+                        System.out.println("Hot / Ice");
+                        System.out.println("Menu Pesanan Anda : " + menu +"    x"+ jml_barang+"   |  Rp. "+ total_harga);
+                    }else{
+                        System.out.println("Maaf Menu Yang Anda Pilih Tidak Tersedia.");
+                    }
+                        System.out.println("Apakah anda mau memesan lagi? Y/T");
+                        a = sc.next();
+                }
             }else if(konfirmasi.equalsIgnoreCase("2")){
 
                 System.out.print("Nama Kasir\t\t: ");
