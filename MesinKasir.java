@@ -43,7 +43,7 @@ public class MesinKasir{
             }
         }
            
-        //MENU
+        //DISPLAY MENU
         System.out.println(" ------------------------------------------------------- ");
         System.out.println("|                     LARAVEL COFFEE                    |");
         System.out.println("|                          MENU                         |");
@@ -95,7 +95,7 @@ public class MesinKasir{
         
                     System.out.print("Masukkan Banyak Pesanan : ");
                     jml_barang = sc.nextInt();
-                    if (input_menu == 1)
+                    if (menu_item == 1)
                     {
                         menu = "Cappucino";
                         System.out.println("Ingin Hot / Ice?");
@@ -107,9 +107,8 @@ public class MesinKasir{
                             System.out.println("Cappucino Ice");
                             total_harga= harga_menu[1] * jml_barang;
                         }
-                        System.out.println("Hot / Ice");
                         System.out.println("Menu Pesanan Anda : " + menu +"    x"+ jml_barang+"   |  Rp. "+ total_harga);
-                    }else if(input_menu == 2){
+                    }else if(menu_item == 2){
                         menu = "Coffe Latte";
                         System.out.println("Ingin Hot / Ice?");
                         suhu = sc.next();
@@ -120,7 +119,6 @@ public class MesinKasir{
                             System.out.println("Coffee latte Ice");
                             total_harga= harga_menu[1] * jml_barang;
                         }
-                        System.out.println("Hot / Ice");
                         System.out.println("Menu Pesanan Anda : " + menu +"    x"+ jml_barang+"   |  Rp. "+ total_harga);
                     }else{
                         System.out.println("Maaf Menu Yang Anda Pilih Tidak Tersedia.");
