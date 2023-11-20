@@ -60,9 +60,9 @@ public class MesinKasir {
         System.out.println("|   9.COFFEEMILK          :               Rp 20.000     |");
         System.out.println("|                                                       |");
         System.out.println("|MANUAL BREW :                                          |");
-        System.out.println("|   10.VIETNAM DRIP        : Rp 22.000                  |");
-        System.out.println("|   11.V60                 : Rp 22.000                  |");
-        System.out.println("|   12.JAPANESE            : Rp 22.000                  |");
+        System.out.println("|   10.VIETNAM DRIP        : Rp 15.000                  |");
+        System.out.println("|   11.V60                 : Rp 20.000                  |");
+        System.out.println("|   12.JAPANESE            : Rp 20.000                  |");
         System.out.println(" ------------------------------------------------------- ");
 
         // INPUT DATA
@@ -97,10 +97,9 @@ public class MesinKasir {
                             System.out.println("Cappucino Ice");
                             total_harga = harga_menu[1] * jml_barang;
                         }
-                        System.out.println(
-                                "Menu Pesanan Anda : " + menu +" "+suhu[iSuhu-1]+"    x" + jml_barang + "   |  Rp. " + total_harga);
-                    } else if (menu_item == 2) {
-                        menu = "Coffe Latte";
+                        System.out.println("Menu Pesanan Anda : " + menu +"    x"+ jml_barang+"   |  Rp. "+ total_harga);
+                    }else if(menu_item == 2){
+                        menu = "Coffee Latte";
                         System.out.println("Ingin Hot / Ice?");
                         System.out.println("1. Hot\n" + "2. Ice\n");
                         System.out.print("Pilih : ");
