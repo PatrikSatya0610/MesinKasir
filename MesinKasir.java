@@ -261,7 +261,7 @@ public class MesinKasir{
                 System.out.println("Nomor Meja\t\t: "+ pilihMeja);
                 System.out.println("Jumlah Pelanggan\t: "+jumlah_tamu);
                 System.out.println("Tanggal Reservasi\t: " + date);
-                System.out.print("Nama Kasir\t\t: "+nama_pegawai);
+                System.out.println("Nama Kasir\t\t: "+nama_pegawai);
             }else if(konfirmasi.equalsIgnoreCase("9")){
                 break;
             }
