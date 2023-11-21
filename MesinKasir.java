@@ -405,6 +405,7 @@ public class MesinKasir{
         System.out.println("Total Harga\t\t: " + total_harga);
         System.out.println("Uang yang dibayarkan\t: " + pembayaran);
         System.out.println("Kembalian\t\t: " + kembalian);
+        System.out.println("Tanggal Pembelian\t: "+ date);
         System.out.println("\n---- TERIMA KASIH ----");
 
  
