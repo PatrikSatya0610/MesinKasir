@@ -334,7 +334,7 @@ public class MesinKasir{
          pelanggan = sc.next();
 
         //  PROSES DATA STRUK PEMBAYARAN
-        System.out.println("Total Harga : " + total_harga);
+        // System.out.println("Total Harga : " + total_harga);
 
          // PROSES DATA VOUCHER
         System.out.println("Masukkan Kode Voucher : ");
