@@ -141,6 +141,12 @@ public class MesinKasir{
                             total_harga= harga_menu[1] * jml_barang;
                         }
                         System.out.println("Menu Pesanan Anda : " + menu +"    x"+ jml_barang+"   |  Rp. "+ total_harga);
+                        nama_menu[index_menu] = menu;
+                        jumlah_menu[index_menu] = jml_barang;
+                        harga_item[index_menu] = harga/jml_barang;
+                        total_harga += harga;
+                        index_menu++;
+                        System.out.println(index_menu);
                     }else if(menu_item == 4){
                         menu = "Hazelnut Latte";
                         System.out.println("Ingin Hot / Ice?");
@@ -153,6 +159,12 @@ public class MesinKasir{
                             total_harga= harga_menu[1] * jml_barang;
                         }
                         System.out.println("Menu Pesanan Anda : " + menu +"    x"+ jml_barang+"   |  Rp. "+ total_harga);
+                        nama_menu[index_menu] = menu;
+                        jumlah_menu[index_menu] = jml_barang;
+                        harga_item[index_menu] = harga/jml_barang;
+                        total_harga += harga;
+                        index_menu++;
+                        System.out.println(index_menu);
                     }else if(menu_item == 5){
                         menu = "Strawbery Latte";
                         System.out.println("Ingin Hot / Ice?");
@@ -165,6 +177,12 @@ public class MesinKasir{
                             total_harga= harga_menu[1] * jml_barang;
                         }
                         System.out.println("Menu Pesanan Anda : " + menu +"    x"+ jml_barang+"   |  Rp. "+ total_harga);
+                        nama_menu[index_menu] = menu;
+                        jumlah_menu[index_menu] = jml_barang;
+                        harga_item[index_menu] = harga/jml_barang;
+                        total_harga += harga;
+                        index_menu++;
+                        System.out.println(index_menu);
                     }else if(menu_item == 6){
                         menu = "Americano";
                         System.out.println("Ingin Hot / Ice?");
@@ -177,10 +195,22 @@ public class MesinKasir{
                             total_harga= harga_menu[3] * jml_barang;
                         }
                         System.out.println("Menu Pesanan Anda : " + menu +"    x"+ jml_barang+"   |  Rp. "+ total_harga);
+                        nama_menu[index_menu] = menu;
+                        jumlah_menu[index_menu] = jml_barang;
+                        harga_item[index_menu] = harga/jml_barang;
+                        total_harga += harga;
+                        index_menu++;
+                        System.out.println(index_menu);
                     }else if(menu_item == 7){
                         menu = "Picolo Latte";
                         total_harga= harga_menu[2] * jml_barang;
                         System.out.println("Menu Pesanan Anda : " + menu +"    x"+ jml_barang+"   |  Rp. "+ total_harga);
+                        nama_menu[index_menu] = menu;
+                        jumlah_menu[index_menu] = jml_barang;
+                        harga_item[index_menu] = harga/jml_barang;
+                        total_harga += harga;
+                        index_menu++;
+                        System.out.println(index_menu);
                     }else if(menu_item == 8){
                         menu = "Caramel Machiato";
                         System.out.println("Ingin Hot / Ice?");
@@ -193,22 +223,52 @@ public class MesinKasir{
                             total_harga= harga_menu[1] * jml_barang;
                         }
                         System.out.println("Menu Pesanan Anda : " + menu +"    x"+ jml_barang+"   |  Rp. "+ total_harga);
+                        nama_menu[index_menu] = menu;
+                        jumlah_menu[index_menu] = jml_barang;
+                        harga_item[index_menu] = harga/jml_barang;
+                        total_harga += harga;
+                        index_menu++;
+                        System.out.println(index_menu);
                     }else if(menu_item == 9){
                         menu = "Coffeemilk";
                         total_harga= harga_menu[1] * jml_barang;
                         System.out.println("Menu Pesanan Anda : " + menu +"    x"+ jml_barang+"   |  Rp. "+ total_harga);
+                        nama_menu[index_menu] = menu;
+                        jumlah_menu[index_menu] = jml_barang;
+                        harga_item[index_menu] = harga/jml_barang;
+                        total_harga += harga;
+                        index_menu++;
+                        System.out.println(index_menu);
                     }else if(menu_item == 10){
                         menu = "Vietnam Drip";
                         total_harga= harga_menu[2] * jml_barang;
                         System.out.println("Menu Pesanan Anda : " + menu +"    x"+ jml_barang+"   |  Rp. "+ total_harga);
+                        nama_menu[index_menu] = menu;
+                        jumlah_menu[index_menu] = jml_barang;
+                        harga_item[index_menu] = harga/jml_barang;
+                        total_harga += harga;
+                        index_menu++;
+                        System.out.println(index_menu);
                     }else if(menu_item == 11){
                         menu = "V60";
                         total_harga= harga_menu[0] * jml_barang;
                         System.out.println("Menu Pesanan Anda : " + menu +"    x"+ jml_barang+"   |  Rp. "+ total_harga);
+                        nama_menu[index_menu] = menu;
+                        jumlah_menu[index_menu] = jml_barang;
+                        harga_item[index_menu] = harga/jml_barang;
+                        total_harga += harga;
+                        index_menu++;
+                        System.out.println(index_menu);
                     }else if(menu_item == 12){
                         menu = "Japanese";
                         total_harga= harga_menu[0] * jml_barang;
                         System.out.println("Menu Pesanan Anda : " + menu +"    x"+ jml_barang+"   |  Rp. "+ total_harga);
+                        nama_menu[index_menu] = menu;
+                        jumlah_menu[index_menu] = jml_barang;
+                        harga_item[index_menu] = harga/jml_barang;
+                        total_harga += harga;
+                        index_menu++;
+                        System.out.println(index_menu);
                     }else{
                         System.out.println("Maaf Menu Yang Anda Pilih Tidak Tersedia.");
                     }
@@ -316,13 +376,15 @@ public class MesinKasir{
             case 2 :
                 System.out.print("Masukkan jumlah yang dibayar : ");
                 pembayaran = sc.nextDouble();
-                kembalian = pembayaran - total_harga;
+                total_harga = ((total_harga*pajak1)+total_harga);
+                kembalian = pembayaran - ((total_harga*pajak1)+total_harga);
                 break;
             // E-Money
             case 3 :
                 System.out.print("Masukkan jumlah yang dibayar : ");
                 pembayaran = sc.nextDouble();
-                kembalian = pembayaran - total_harga;
+                total_harga = ((total_harga*pajak2)+total_harga);
+                kembalian = pembayaran - ((total_harga*pajak2)+total_harga);
                 break;
             default:
                 System.out.println("Maaf, Silahkan pilih angka yang sesuai.");
@@ -332,17 +394,17 @@ public class MesinKasir{
         // OUTPUT STRUK PEMBAYARAN
         System.out.println("");
         System.out.println("\n\n---- STRUK PEMBELIAN ----");
-        System.out.println("Nama Pelanggan\t: " + pelanggan + "\n");
+        System.out.println("Nama Pelanggan\t\t: " + pelanggan + "\n");
         for (int j = 0; j < index_menu; j++) {
-            System.out.println("Nama Barang\t: " + nama_menu[j]);
-            System.out.println("Harga per Item\t: " + harga_item[j]);
-            System.out.println("Jumlah Barang\t: " + jumlah_menu[j]);
+            System.out.println("Nama Barang\t\t: " + nama_menu[j]);
+            System.out.println("Harga per Item\t\t: " + harga_item[j]);
+            System.out.println("Jumlah Barang\t\t: " + jumlah_menu[j]);
             System.out.println(" ");
         }
-        System.out.println("Diskon\t\t: " + diskon);
-        System.out.println("Total Harga\t: " + total_harga);
+        System.out.println("Diskon\t\t\t: " + diskon);
+        System.out.println("Total Harga\t\t: " + total_harga);
         System.out.println("Uang yang dibayarkan\t: " + pembayaran);
-        System.out.println("Kembalian\t: " + kembalian);
+        System.out.println("Kembalian\t\t: " + kembalian);
         System.out.println("\n---- TERIMA KASIH ----");
 
  
