@@ -29,6 +29,7 @@ public class MesinKasir{
         String[] nama_menu = new String[10];
         int[] jumlah_menu = new int[10];
         double[] harga_item = new double[10];
+        double[] total_hargaitem = new double[10];
         double total_harga = 0;
         int index_menu = 0;
 
@@ -98,15 +99,16 @@ public class MesinKasir{
                         suhu = sc.next();
                         if (suhu.equalsIgnoreCase("hot")) {
                             System.out.println("Cappucino Hot");
-                            harga= harga_menu[0] * jml_barang;
+                            total_harga= harga_menu[0] * jml_barang;
                         }else if (suhu.equalsIgnoreCase("ice")){
                             System.out.println("Cappucino Ice");
-                            harga= harga_menu[1] * jml_barang;
+                            total_harga= harga_menu[1] * jml_barang;
                         }
-                        System.out.println("Menu Pesanan Anda : " + menu +"    x"+ jml_barang+"   |  Rp. "+ harga);
+                        System.out.println("Menu Pesanan Anda : " + menu +"    x"+ jml_barang+"   |  Rp. "+ total_harga);
                         nama_menu[index_menu] = menu;
                         jumlah_menu[index_menu] = jml_barang;
-                        harga_item[index_menu] = harga/jml_barang;
+                        harga_item[index_menu] = total_harga/jml_barang;
+                        total_hargaitem[index_menu] = total_harga;
                         total_harga += harga;
                         index_menu++;
                         System.out.println(index_menu);
@@ -125,6 +127,7 @@ public class MesinKasir{
                         nama_menu[index_menu] = menu;
                         jumlah_menu[index_menu] = jml_barang;
                         harga_item[index_menu] = total_harga/jml_barang;
+                        total_hargaitem[index_menu] = total_harga;
                         total_harga += harga;
                         index_menu++;
                         System.out.println(index_menu);
@@ -143,7 +146,8 @@ public class MesinKasir{
                         System.out.println("Menu Pesanan Anda : " + menu +"    x"+ jml_barang+"   |  Rp. "+ total_harga);
                         nama_menu[index_menu] = menu;
                         jumlah_menu[index_menu] = jml_barang;
-                        harga_item[index_menu] = harga/jml_barang;
+                        harga_item[index_menu] = total_harga/jml_barang;
+                        total_hargaitem[index_menu] = total_harga;
                         total_harga += harga;
                         index_menu++;
                         System.out.println(index_menu);
@@ -161,7 +165,8 @@ public class MesinKasir{
                         System.out.println("Menu Pesanan Anda : " + menu +"    x"+ jml_barang+"   |  Rp. "+ total_harga);
                         nama_menu[index_menu] = menu;
                         jumlah_menu[index_menu] = jml_barang;
-                        harga_item[index_menu] = harga/jml_barang;
+                        harga_item[index_menu] = total_harga/jml_barang;
+                        total_hargaitem[index_menu] = total_harga;
                         total_harga += harga;
                         index_menu++;
                         System.out.println(index_menu);
@@ -179,7 +184,8 @@ public class MesinKasir{
                         System.out.println("Menu Pesanan Anda : " + menu +"    x"+ jml_barang+"   |  Rp. "+ total_harga);
                         nama_menu[index_menu] = menu;
                         jumlah_menu[index_menu] = jml_barang;
-                        harga_item[index_menu] = harga/jml_barang;
+                        harga_item[index_menu] = total_harga/jml_barang;
+                        total_hargaitem[index_menu] = total_harga;
                         total_harga += harga;
                         index_menu++;
                         System.out.println(index_menu);
@@ -197,7 +203,8 @@ public class MesinKasir{
                         System.out.println("Menu Pesanan Anda : " + menu +"    x"+ jml_barang+"   |  Rp. "+ total_harga);
                         nama_menu[index_menu] = menu;
                         jumlah_menu[index_menu] = jml_barang;
-                        harga_item[index_menu] = harga/jml_barang;
+                        harga_item[index_menu] = total_harga/jml_barang;
+                        total_hargaitem[index_menu] = total_harga;
                         total_harga += harga;
                         index_menu++;
                         System.out.println(index_menu);
@@ -207,7 +214,8 @@ public class MesinKasir{
                         System.out.println("Menu Pesanan Anda : " + menu +"    x"+ jml_barang+"   |  Rp. "+ total_harga);
                         nama_menu[index_menu] = menu;
                         jumlah_menu[index_menu] = jml_barang;
-                        harga_item[index_menu] = harga/jml_barang;
+                        harga_item[index_menu] = total_harga/jml_barang;
+                        total_hargaitem[index_menu] = total_harga;
                         total_harga += harga;
                         index_menu++;
                         System.out.println(index_menu);
@@ -225,7 +233,8 @@ public class MesinKasir{
                         System.out.println("Menu Pesanan Anda : " + menu +"    x"+ jml_barang+"   |  Rp. "+ total_harga);
                         nama_menu[index_menu] = menu;
                         jumlah_menu[index_menu] = jml_barang;
-                        harga_item[index_menu] = harga/jml_barang;
+                        harga_item[index_menu] = total_harga/jml_barang;
+                        total_hargaitem[index_menu] = total_harga;
                         total_harga += harga;
                         index_menu++;
                         System.out.println(index_menu);
@@ -235,7 +244,8 @@ public class MesinKasir{
                         System.out.println("Menu Pesanan Anda : " + menu +"    x"+ jml_barang+"   |  Rp. "+ total_harga);
                         nama_menu[index_menu] = menu;
                         jumlah_menu[index_menu] = jml_barang;
-                        harga_item[index_menu] = harga/jml_barang;
+                        harga_item[index_menu] = total_harga/jml_barang;
+                        total_hargaitem[index_menu] = total_harga;
                         total_harga += harga;
                         index_menu++;
                         System.out.println(index_menu);
@@ -245,7 +255,8 @@ public class MesinKasir{
                         System.out.println("Menu Pesanan Anda : " + menu +"    x"+ jml_barang+"   |  Rp. "+ total_harga);
                         nama_menu[index_menu] = menu;
                         jumlah_menu[index_menu] = jml_barang;
-                        harga_item[index_menu] = harga/jml_barang;
+                        harga_item[index_menu] = total_harga/jml_barang;
+                        total_hargaitem[index_menu] = total_harga;
                         total_harga += harga;
                         index_menu++;
                         System.out.println(index_menu);
@@ -255,7 +266,8 @@ public class MesinKasir{
                         System.out.println("Menu Pesanan Anda : " + menu +"    x"+ jml_barang+"   |  Rp. "+ total_harga);
                         nama_menu[index_menu] = menu;
                         jumlah_menu[index_menu] = jml_barang;
-                        harga_item[index_menu] = harga/jml_barang;
+                        harga_item[index_menu] = total_harga/jml_barang;
+                        total_hargaitem[index_menu] = total_harga;
                         total_harga += harga;
                         index_menu++;
                         System.out.println(index_menu);
@@ -265,7 +277,8 @@ public class MesinKasir{
                         System.out.println("Menu Pesanan Anda : " + menu +"    x"+ jml_barang+"   |  Rp. "+ total_harga);
                         nama_menu[index_menu] = menu;
                         jumlah_menu[index_menu] = jml_barang;
-                        harga_item[index_menu] = harga/jml_barang;
+                        harga_item[index_menu] = total_harga/jml_barang;
+                        total_hargaitem[index_menu] = total_harga;
                         total_harga += harga;
                         index_menu++;
                         System.out.println(index_menu);
@@ -330,7 +343,7 @@ public class MesinKasir{
         //  PROSES DATA
 
         // INPUT DATA STRUK PEMBAYARAN
-         System.out.print("Masukkan nama pelanggan :");
+         System.out.print("Masukkan Nama Pelanggan :");
          pelanggan = sc.next();
 
         //  PROSES DATA STRUK PEMBAYARAN
@@ -399,6 +412,7 @@ public class MesinKasir{
             System.out.println("Nama Barang\t\t: " + nama_menu[j]);
             System.out.println("Harga per Item\t\t: " + harga_item[j]);
             System.out.println("Jumlah Barang\t\t: " + jumlah_menu[j]);
+            System.out.println("Total Harga\t\t: " + total_hargaitem[j]);
             System.out.println(" ");
         }
         System.out.println("Diskon\t\t\t: " + diskon);

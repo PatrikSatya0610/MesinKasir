@@ -18,8 +18,7 @@ public class Reservasi {
         int jumlah_tamu = 0;
 
         // mendefinisikan array untuk nomor meja
-        // int[] nomor_meja = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17};
-        int[][] nomor_meja = new int[4][4];
+        int[][] nomor_meja = new int[4][8];
         int mejaCounter = 1;
         // boolean konfirmasi;
 
@@ -52,11 +51,11 @@ public class Reservasi {
         nomor_kontak = input.nextLine();
 
         // Tampilan nomor meja
-        System.out.println(" ------------------------------------------------------- ");
-        System.out.println("|_______________________________________________________|");
-        System.out.println("|                    MEJA RESERVASI                     |");
-        System.out.println("|                    LARAVEL COFFEE                     |");
-        System.out.println("|_______________________________________________________|");
+        System.out.println(" -------------------------------------------------------- ");
+        System.out.println("|________________________________________________________|");
+        System.out.println("|                    MEJA RESERVASI                      |");
+        System.out.println("|                    LARAVEL COFFEE                      |");
+        System.out.println("|________________________________________________________|");
      // System.out.println("|  ___   ___   ___   ___   ___   ___   ___   ___   ___  |");
      // System.out.println("| | 1 | | 2 | | 3 | | 4 | | 5 | | 6 | | 7 | | 8 | | 9 | |");
      // System.out.println("|  ____   ____   ____   ____   ____   ____   ____   ____|");
@@ -69,87 +68,14 @@ public class Reservasi {
         for (int i = 0; i < nomor_meja.length; i++) {
             System.out.print("| ");
             for (int j = 0; j < nomor_meja[i].length; j++) {
-                System.out.printf(" %2d |", nomor_meja[i][j]);
+                System.out.printf(" %4d |", nomor_meja[i][j]);
             }
-            System.out.println("\n\t|____|____|____|____|");
+            System.out.println("\n|________________________________________________________|");
         }
 
-        // int pilihMeja = input.nextInt();
-
-        // switch (nomor_meja) {
-            // case 1:
-                // System.out.println("Meja 1");
-                // break;
-            // case 2:
-                // System.out.println("Meja 2");
-                // break;
-            // case 3:
-                // System.out.println("Meja 3");
-                // break;
-            // case 4:
-                // System.out.println("Meja 4");
-                // break;
-            // case 5:
-                // System.out.println("Meja 5");
-                // break;
-            // case 6:
-                // System.out.println("Meja 6");
-                // break;
-            // case 7:
-                // System.out.println("Meja 7");
-                // break;
-            // case 8:
-                // System.out.println("Meja 8");
-                // break;
-            // case 9:
-                // System.out.println("Meja 9");
-                // break;
-            // case 10:
-                // System.out.println("Meja 10");
-                // break;
-            // case 11:
-                // System.out.println("Meja 11");
-                // break;
-            // case 12:
-                // System.out.println("Meja 12");
-                // break;
-            // case 13:
-                // System.out.println("Meja 13");
-                // break;
-            // case 14:
-                // System.out.println("Meja 14");
-                // break;
-            // case 15:
-                // System.out.println("Meja 15");
-                // break;
-            // case 16:
-                // System.out.println("Meja 16");
-                // break;
-            // case 17:
-                // System.out.println("Meja 17");
-                // break;
-            // default:
-            // System.out.println("Silahkan Pilih Nomor Meja Yang Tersedia");
-                // break;
-        // }
 
         System.out.print("Pilih Nomor Meja : ");
         int pilihMeja = input.nextInt();
-
-    // memeriksa ketersediaan meja 
-        // if (pilihMeja >= 1 && pilihMeja <= nomor_meja.length) {
-            // System.out.println("Meja " + pilihMeja);
-        // } else {
-            // System.out.println("Silahkan Pilih Nomor Meja Yang Tersedia");
-        // }
-
-        // System.out.print("Jumlah Pelanggan\t: ");
-        // jumlah_tamu = input.nextInt();
-        // if (jumlah_tamu<= 5) {
-            // System.out.println("Jumlah Tamu Yang akan duduk :"+jumlah_tamu);      
-        // }else{
-            // System.out.println("Mohon Maaf Kapasistas Tempat duduk Terlalu banyak");
-        // }
 
         boolean mejaTersedia = false;
         for (int i = 0; i < nomor_meja.length; i++) {
