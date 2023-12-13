@@ -155,7 +155,7 @@ public class Sketnyadisini{
                     a = sc.next();
                 }
                 System.out.print("Masukkan nama pelanggan :");
-                pelanggan = sc.next();
+                pelanggan = sc.next(); 
             }
 
         private static String[] pilihPesananDanHarga (String[][] daftarPesananHarga, int nomorPesanan) {
