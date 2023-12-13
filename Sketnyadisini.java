@@ -77,7 +77,7 @@ public class Sketnyadisini{
                     break;
                 case 3 :
 
-                case 9 :
+                case 0 :
                     System.out.println("----- THANK YOU !!! -----");
                     stop = false;
                     break;
@@ -97,9 +97,11 @@ public class Sketnyadisini{
             System.out.println("---------- Pilih Fitur ----------");
             System.out.println("| 1. Menu                       |");
             System.out.println("| 2. Reservasi                  |");
-            System.out.println("| 9. Exit                       |");
+            System.out.println("| 3. Reservasi                  |");
+            System.out.println("| 0. Exit                       |");
             System.out.println("|                               |");
             System.out.println("---------------------------------");
+            System.out.print("Pilih Fitur : ");
             konfirm = sc.nextInt();
             return konfirm;
     }
@@ -126,7 +128,7 @@ public class Sketnyadisini{
             System.out.println("|   11.V60                 : Rp 20.000                  |");
             System.out.println("|   12.JAPANESE            : Rp 20.000                  |");
             System.out.println(" ------------------------------------------------------- ");
-    }
+        }
         
         // INPUT DATA
         
@@ -148,14 +150,16 @@ public class Sketnyadisini{
                     System.out.println(
                             "Menu Pesanan Anda : " + pesananTerpilih + " "+suhu[getSuhu-1]+"    x" + jml_barang + "   |  Rp. " + total_hargaitem[index_menu]);
                     menyimpanPesanan(menu_item,getSuhu);
-                            
+                    
                     System.out.println("Apakah anda mau memesan lagi? Y/T");
                     a = sc.next();
                 }
+                System.out.print("Masukkan nama pelanggan :");
+                pelanggan = sc.next();
             }
 
-            private static String[] pilihPesananDanHarga (String[][] daftarPesananHarga, int nomorPesanan) {
-                // Indeks array dimulai dari 0, jadi kurangi nomor pesanan dengan 1
+        private static String[] pilihPesananDanHarga (String[][] daftarPesananHarga, int nomorPesanan) {
+            // Indeks array dimulai dari 0, jadi kurangi nomor pesanan dengan 1
                 int indexPesanan = nomorPesanan - 1;
                 return daftarPesananHarga[indexPesanan];
             }
@@ -163,9 +167,8 @@ public class Sketnyadisini{
             static void menyimpanPesanan (int menu_item,int getSuhu){
             nama_menu [index_menu] = menuDanHarga[menu_item - 1][0];
             jumlah_menu[index_menu] = jml_barang;
-            harga_item[index_menu] = total_harga / jml_barang;
-            total_hargaitem[index_menu] = total_harga;
-            total_harga += harga;
+            harga_item[index_menu] = total_hargaitem[index_menu] / jml_barang;
+            total_harga += total_hargaitem[index_menu];
             index_menu++;
         }
             // RESERVASI
@@ -251,15 +254,19 @@ public class Sketnyadisini{
             Scanner sc = new Scanner(System.in);
             System.out.println("Masukkan Kode Voucher : ");
             voucher = sc.next();
-            if (voucher.equals("LRVL03")) {
-                if (total_harga <= 100000) {
-                    diskon = 0.25;
-                    System.out.println("Selamat Anda mendapatkan potongan harga sebesar 25%");
-                } else
+            for (int i = 1; i <= 3; i++) {                
+                if (voucher.equals("LRVL03")) {
+                    if (total_harga <= 100000) {
+                        diskon = 0.25;
+                        System.out.println("Selamat Anda mendapatkan potongan harga sebesar 25%.");
+                        break;
+                    } else
                     diskon = 0.1;
-                    System.out.println("Selamat Anda mendapatkan potongan harga sebesar 10%");
-            } else {
-                System.out.println("Kode Voucher Tidak Tersedia");
+                    System.out.println("Selamat Anda mendapatkan potongan harga sebesar 10%.");
+                    break;
+                } else {
+                    System.out.println("Kode Voucher Tidak Tersedia. Silahkan coba lagi.");
+                }
             }
             total_harga = total_harga - (total_harga * diskon);
             System.out.print("Total Harga = " + total_harga);
@@ -287,21 +294,21 @@ public class Sketnyadisini{
                     case 1:
                     System.out.print("Masukkan jumlah yang dibayar : ");
                         pembayaran = sc.nextDouble();
-                        kembalian = pembayaran - total_harga;
+                        kembalian = pembayaran - (fiturKodeVoucher());
                         iBayar++;
                         break;
                         // DEBIT
                         case 2:
                         System.out.print("Masukkan jumlah yang dibayar : ");
                         pembayaran = sc.nextDouble();
-                        prosesKembalian(prosesPembayaran(total_harga, pajak1),pembayaran );
+                        prosesKembalian(prosesPembayaran(fiturKodeVoucher(), pajak1),pembayaran );
                         iBayar++;
                         break;
                         // E-Money
                         case 3:
                         System.out.print("Masukkan jumlah yang dibayar : ");
                         pembayaran = sc.nextDouble();
-                        prosesKembalian(prosesPembayaran(total_harga, pajak2),pembayaran );
+                        prosesKembalian(prosesPembayaran(fiturKodeVoucher(), pajak2),pembayaran );
                         iBayar++;
                         break;
                         default:
@@ -324,8 +331,6 @@ public class Sketnyadisini{
             // OUTPUT STRUK PEMBAYARAN
             Scanner sc = new Scanner(System.in);
             LocalDate date = LocalDate.now();
-            System.out.print("Masukkan nama pelanggan :");
-            pelanggan = sc.next();
             
             System.out.println("");
             System.out.println("\n\n---- STRUK PEMBELIAN ----");
@@ -353,5 +358,6 @@ public class Sketnyadisini{
         }
 }
 
-// Tambahan note atau request
+        // Tambahan note atau request
         // Biaya Charge/Penalty
+        // Menyimpan pesanan dalam 2 dimensi
