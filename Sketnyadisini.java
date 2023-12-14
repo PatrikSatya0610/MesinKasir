@@ -272,6 +272,21 @@ public class Sketnyadisini{
             System.out.print("Total Harga = " + total_harga);
             return total_harga;
         }
+
+        static void fiturLaporanPenjualan(){
+            // output laporan penjualan 
+        System.out.println("\n\n---- LAPORAN PENJUALAN ----");
+        System.out.println("NO. \tMenu\t\tJumlah Terjual\tTotal Penjualan");
+        
+        for (int k = 0; k < nama_menu.length; k++) {
+            if (nama_menu[k] != null) {
+                System.out.println((k + 1) + "\t" + nama_menu[k] + "\t\t" +
+                nama_menu[k] + "\t\tRp. " + total_hargaitem[k]);
+            }
+        }
+        System.out.println("\nTotal Penjualan Semua Menu: Rp. " + total_harga);
+        System.out.println("---- LAPORAN PENJUALAN SELESAI ----");
+    }
         
         static void memilihPembayaran(){
             Scanner sc = new Scanner(System.in);
