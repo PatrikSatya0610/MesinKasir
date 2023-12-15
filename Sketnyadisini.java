@@ -2,6 +2,7 @@ import java.time.LocalDate;
 import java.util.Scanner;
 
 public class Sketnyadisini{
+    
     // VARIABEL GLOBAL
     static int index_menu = 0;
     static int suhu_menu;
@@ -334,6 +335,11 @@ public class Sketnyadisini{
                         System.out.println("Maaf, Silahkan pilih angka yang sesuai.");
                         break;
                 }
+                // Simpan informasi pembelian yang belum diselesaikan
+                    pesananBelumSelesai[index_pesanan_belum_selesai][0] = pelanggan;
+                    pesananBelumSelesai[index_pesanan_belum_selesai][1] = nomor_kontak;
+                    pesananBelumSelesai[index_pesanan_belum_selesai][2] = String.valueOf(total_harga);
+                    index_pesanan_belum_selesai++;
             }
         }
         private static double prosesPembayaran(double totHarga, double ppn ){
@@ -345,6 +351,8 @@ public class Sketnyadisini{
             kembalian = pembayaran - totHarga;
             return kembalian;
         }
+        static String[][] pesananBelumSelesai = new String[10][3]; 
+        static int index_pesanan_belum_selesai = 0;
 
         static void menampilkanStrukPembayaran(){
             // OUTPUT STRUK PEMBAYARAN
@@ -367,7 +375,17 @@ public class Sketnyadisini{
             System.out.println("Uang yang dibayarkan\t: " + pembayaran);
             System.out.println("Kembalian\t\t: " + kembalian);
             System.out.println("\n---- TERIMA KASIH ----");
+
+            // TAMPILKAN OPSI OPEN BILL
+            System.out.println("\nApakah Anda ingin membuka kembali tagihan yang belum diselesaikan? (Y/T)");
+            String pilihan = sc.next();
+            if (pilihan.equalsIgnoreCase("Y")) {
+                tampilkanTagihanBelumSelesai();
+            }
         }
+        private static void tampilkanTagihanBelumSelesai() {
+        }
+
         static void initNomorMeja(){
             for (int i = 0; i < nomor_meja.length; i++) {
                 for (int j = 0; j < nomor_meja[i].length; j++) {
