@@ -33,12 +33,11 @@ public class Sketnyadisini{
         {"V60","20000",""},
         {"Japanese","20000"}
     };
-    static String[] suhu = {"Hot","Ice"};
+    static String[] suhu = {" Hot"," Ice"};
     public static String[] nama_menu = new String[15];
     static double[] harga_item = new double[10];
     static double[] total_hargaitem = new double[10];
     static int[][] nomor_meja = new int[4][8];
-    static int[] harga_menu = { 20000, 22000, 17000, 15000 };
     static int[] jumlah_menu = new int[10];
     
     public static void main(String[] args) {
@@ -88,26 +87,26 @@ public class Sketnyadisini{
         } while (stop);
     }
     
-    private static boolean loginAdmin(String username, String password) {
-        return username.equals("admin") && password.equals("123");
-    }
+        private static boolean loginAdmin(String username, String password) {
+            return username.equals("admin") && password.equals("123");
+        }
         
-    public static int pilihFitur(int konfirm){
-        Scanner sc = new Scanner(System.in);
+        public static int pilihFitur(int konfirm){
+            Scanner sc = new Scanner(System.in);
             System.out.println("---------- Pilih Fitur ----------");
             System.out.println("| 1. Menu                       |");
             System.out.println("| 2. Reservasi                  |");
-            System.out.println("| 3. Reservasi                  |");
+            System.out.println("| 3. Laporan Penjualan          |");
             System.out.println("| 0. Exit                       |");
             System.out.println("|                               |");
             System.out.println("---------------------------------");
             System.out.print("Pilih Fitur : ");
             konfirm = sc.nextInt();
             return konfirm;
-    }
+        }
             
         // DISPLAY MENU
-    public static void menampilkanMenu(){
+         public static void menampilkanMenu(){
             System.out.println(" ------------------------------------------------------- ");
             System.out.println("|                     LARAVEL COFFEE                    |");
             System.out.println("|                          MENU                         |");
@@ -147,9 +146,8 @@ public class Sketnyadisini{
                     System.out.print("Masukkan Banyak Pesanan : ");
                     jml_barang = sc.nextInt();
                     total_hargaitem[index_menu]= jml_barang * hargaPesanan;
-                    System.out.println(
-                            "Menu Pesanan Anda : " + pesananTerpilih + " "+suhu[getSuhu-1]+"    x" + jml_barang + "   |  Rp. " + total_hargaitem[index_menu]);
                     menyimpanPesanan(menu_item,getSuhu);
+                    menampilkanKeranjang();
                     
                     System.out.println("Apakah anda mau memesan lagi? Y/T");
                     a = sc.next();
@@ -158,6 +156,13 @@ public class Sketnyadisini{
                 pelanggan = sc.next(); 
             }
 
+        static void menampilkanKeranjang(){
+            System.out.println("Menu Pesanan Anda : ");
+            for (int i = 0; i < index_menu; i++) {
+                System.out.println(nama_menu[i]+"    x" + jml_barang + "   |  Rp. " + total_hargaitem[i]);
+            }
+        }
+                
         private static String[] pilihPesananDanHarga (String[][] daftarPesananHarga, int nomorPesanan) {
             // Indeks array dimulai dari 0, jadi kurangi nomor pesanan dengan 1
                 int indexPesanan = nomorPesanan - 1;
@@ -165,14 +170,15 @@ public class Sketnyadisini{
             }
 
             static void menyimpanPesanan (int menu_item,int getSuhu){
-            nama_menu [index_menu] = menuDanHarga[menu_item - 1][0];
+            nama_menu [index_menu] = menuDanHarga[menu_item - 1][0] + suhu[getSuhu-1];
             jumlah_menu[index_menu] = jml_barang;
             harga_item[index_menu] = total_hargaitem[index_menu] / jml_barang;
             total_harga += total_hargaitem[index_menu];
             index_menu++;
         }
+
             // RESERVASI
-            static void inputDataReservasi(){
+        static void inputDataReservasi(){
             Scanner input = new Scanner(System.in);
             // INPUT DATA
             System.out.println("*************************************************************************");
