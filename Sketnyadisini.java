@@ -288,7 +288,7 @@ public class Sketnyadisini{
                     (k+1), nama_menu[k], jumlah_menu[k], total_hargaitem[k]);
             }
         }
-        System.out.printf("\n%-40sRp. %18d\n", "Total Penjualan Semua Menu: " + total_harga);
+        System.out.printf("\n%-40sRp. %,.2f\n", "Total Penjualan Semua Menu: ", total_harga);
         System.out.println("---- LAPORAN PENJUALAN SELESAI ----");
     }
         
