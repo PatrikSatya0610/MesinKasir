@@ -76,7 +76,8 @@ public class Sketnyadisini{
                     cetakBuktiReservasi(prosesReservasi());
                     break;
                 case 3 :
-                
+                    fiturLaporanPenjualan();
+                    break;
                 case 0 :
                     System.out.println("----- THANK YOU !!! -----");
                     stop = false;
@@ -149,7 +150,9 @@ public class Sketnyadisini{
                     total_hargaitem[index_menu]= jml_barang * hargaPesanan;
                     System.out.println(
                             "Menu Pesanan Anda : " + pesananTerpilih + " "+suhu[getSuhu-1]+"    x" + jml_barang + "   |  Rp. " + total_hargaitem[index_menu]);
-                    menyimpanPesanan(menu_item,getSuhu);
+                    menyimpanPesanan(menu_item, getSuhu);
+
+                    index_menu++;
                     
                     System.out.println("Apakah anda mau memesan lagi? Y/T");
                     a = sc.next();
@@ -281,11 +284,11 @@ public class Sketnyadisini{
         
         for (int k = 0; k < nama_menu.length; k++) {
             if (nama_menu[k] != null) {
-                System.out.printf("%-4d%-20s%-16Rp. %18.2f\n",
+                System.out.printf("%-4d%-20s%-16sRp. %,.2f\n",
                     (k+1), nama_menu[k], jumlah_menu[k], total_hargaitem[k]);
             }
         }
-        System.out.printf("\n%-40sRp. %18.2f\n", "\nTotal Penjualan Semua Menu: " + total_harga);
+        System.out.printf("\n%-40sRp. %18d\n", "Total Penjualan Semua Menu: " + total_harga);
         System.out.println("---- LAPORAN PENJUALAN SELESAI ----");
     }
         
