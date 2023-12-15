@@ -76,7 +76,7 @@ public class Sketnyadisini{
                     cetakBuktiReservasi(prosesReservasi());
                     break;
                 case 3 :
-
+                
                 case 0 :
                     System.out.println("----- THANK YOU !!! -----");
                     stop = false;
@@ -97,7 +97,7 @@ public class Sketnyadisini{
             System.out.println("---------- Pilih Fitur ----------");
             System.out.println("| 1. Menu                       |");
             System.out.println("| 2. Reservasi                  |");
-            System.out.println("| 3. Reservasi                  |");
+            System.out.println("| 3. Laporan Penjualan          |");
             System.out.println("| 0. Exit                       |");
             System.out.println("|                               |");
             System.out.println("---------------------------------");
@@ -273,18 +273,19 @@ public class Sketnyadisini{
             return total_harga;
         }
 
+        // PROSES DATA LAPORAN PENJUALAN
         static void fiturLaporanPenjualan(){
             // output laporan penjualan 
         System.out.println("\n\n---- LAPORAN PENJUALAN ----");
-        System.out.println("NO. \tMenu\t\tJumlah Terjual\tTotal Penjualan");
+        System.out.printf("%-4s%-20%-16%-18%s\n", "NO. \tMenu\t\tJumlah Terjual\tTotal Penjualan");
         
         for (int k = 0; k < nama_menu.length; k++) {
             if (nama_menu[k] != null) {
-                System.out.println((k + 1) + "\t" + nama_menu[k] + "\t\t" +
-                nama_menu[k] + "\t\tRp. " + total_hargaitem[k]);
+                System.out.printf("%-4d%-20s%-16Rp. %18.2f\n",
+                    (k+1), nama_menu[k], jumlah_menu[k], total_hargaitem[k]);
             }
         }
-        System.out.println("\nTotal Penjualan Semua Menu: Rp. " + total_harga);
+        System.out.printf("\n%-40sRp. %18.2f\n", "\nTotal Penjualan Semua Menu: " + total_harga);
         System.out.println("---- LAPORAN PENJUALAN SELESAI ----");
     }
         
@@ -293,7 +294,7 @@ public class Sketnyadisini{
             for (int iBayar = 0; iBayar < 1;) {
                 // PROSES DATA JENIS PEMBAYARAN
                 System.out.println();
-                System.out.println("*****************************");
+                System.out.println("*********************************");
                 System.out.println("---------------------------------");
                 System.out.println("Jenis Pembayaran");
                 System.out.println("1. Tunai    ");
