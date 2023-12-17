@@ -9,6 +9,7 @@ public class Sketnyadisini{
     static String nama_barang, pelanggan, catatan, voucher;
     static String nama_pelanggan, nomor_kontak, nama_pegawai;
     static double total_harga = 0,kembalian = 0, pembayaran = 0, diskon = 0, pajak1 = 0.05, pajak2 = 0.01;
+    static double totalKeseluruhan = 0;
     static int jml_barang = 0, harga_barang = 0, pilih;
     static int menu_item;
     static int getSuhu;
@@ -18,6 +19,7 @@ public class Sketnyadisini{
     static int pilihMeja = 0;
     static int jumlah_tamu = 0;
     static int total_hargaitem = 0;
+
     
     //ARRAY GLOBAL
     static String[][] menuDanHarga = {
@@ -67,6 +69,7 @@ public class Sketnyadisini{
                 case 1:
                     menampilkanMenu();
                     memilihMenu();
+                    fiturKodeVoucher(total_harga);
                     memilihPembayaran();
                     menampilkanStrukPembayaran();
                     break;
@@ -143,12 +146,22 @@ public class Sketnyadisini{
                     String pesananTerpilih = pesananDanHarga[0];
                     System.out.print("(1) Hot / (2) Ice : ");
                     getSuhu = sc.nextInt();
+                    do {
+                        if (getSuhu == 1 || getSuhu == 2) {
+                            break;
+                        }else{
+                            System.out.println("Tidak Tersedia. Mohon masukkan angka yang tersedia pada layar.");
+                            System.out.print("(1) Hot / (2) Ice : ");
+                            getSuhu = sc.nextInt();
+                        }
+                    } while (getSuhu != 1 || getSuhu != 2);
                     hargaPesanan = Integer.parseInt(pesananDanHarga[getSuhu]);
                     System.out.print("Masukkan Banyak Pesanan : ");
                     jml_barang = sc.nextInt();
                     total_hargaitem = jml_barang * hargaPesanan;
                     menyimpanPesanan(menu_item,getSuhu);
                     menampilkanKeranjang();
+                    total_harga += total_hargaitem;
                     
                     System.out.print("Apakah anda mau memesan lagi? (Y/T) : ");
                     a = sc.next();
@@ -157,9 +170,6 @@ public class Sketnyadisini{
                 pelanggan = sc.next(); 
                 for (int iPelanggan = 0; iPelanggan < index_menu;iPelanggan++) {
                     dataPenjualan[iPelanggan][0] = pelanggan;    
-                }
-                for (int i = 0; i < dataPenjualan.length; i++) {
-                    total_harga += total_hargaitem;
                 }
             }
 
@@ -214,7 +224,7 @@ public class Sketnyadisini{
                 }
                 System.out.println("\n|________________________________________________________|");
             }
-            do {
+                System.out.print("Pilih Kursi yang ingin dipesan :");
                 pilihMeja = input.nextInt();
                 coba++;
                 for (int i = 0; i < nomor_meja.length; i++) {
@@ -239,8 +249,8 @@ public class Sketnyadisini{
                 }
                 if (!mejaTersedia) {
                     System.out.println("Meja " + pilihMeja + " tidak tersedia atau sudah diisi. Silahkan pilih meja lain.");
+                    pilihMeja = input.nextInt(); 
                 }
-            } while (!mejaTersedia || coba <= 4);
             return mejaTersedia;
         }
         
@@ -262,47 +272,44 @@ public class Sketnyadisini{
         // INPUT DATA STRUK PEMBAYARAN
         
         // PROSES DATA STRUK PEMBAYARAN
-        static double fiturKodeVoucher(){
+        static double fiturKodeVoucher(double hargaDibayar){
             // PROSES DATA VOUCHER
             Scanner sc = new Scanner(System.in);
             System.out.println("Masukkan Kode Voucher : ");
             voucher = sc.next();
-            for (int i = 1; i <= 3; i++) {                
-                if (voucher.equals("LRVL03")) {
-                    if (total_harga >= 100000) {
-                        diskon = 0.25;
-                        System.out.println("Selamat Anda mendapatkan potongan harga sebesar 25%.");
-                        break;
-                    } else
+            if (voucher.equals("LRVL03")) {
+                if (total_harga >= 100000) {
+                    diskon = 0.25;
+                    System.out.println("Selamat Anda mendapatkan potongan harga sebesar 25%.");
+                } else if(total_harga < 100000){
                     diskon = 0.1;
                     System.out.println("Selamat Anda mendapatkan potongan harga sebesar 10%.");
-                    break;
-                } else {
-                    System.out.println("Kode Voucher Tidak Tersedia. Silahkan coba lagi.");
-                    break;
                 }
-            }
-            total_harga = total_harga - (total_harga * diskon);
+            } else {
+                System.out.println("Kode Voucher Tidak Tersedia.");
+            } 
+            total_harga = total_harga - ( total_harga * diskon);
             System.out.print("Total Harga = " + total_harga);
             return total_harga;
         }
 
         // PROSES DATA LAPORAN PENJUALAN
-        static void fiturLaporanPenjualan() {
+        static void fiturLaporanPenjualan(){
             // output laporan penjualan 
             System.out.println("\n\n---- LAPORAN PENJUALAN ----");
             System.out.printf("%-20s%-20s%-16s%-18s%s\n", "Nama", "Menu", "Item", "Harga Item(@)", "Total Harga");
             for (int k = 0; k < dataPenjualan.length; k++) {
                 if (dataPenjualan[k] != null && dataPenjualan[k][0] != null) {
-                    System.out.printf("%-20s%-20s%-16s%-18sRp. %.2f\n",
+                    System.out.printf("%-20s%-20s%-16s%-18sRp. %,.2f\n",
                             dataPenjualan[k][0], dataPenjualan[k][1], dataPenjualan[k][2], dataPenjualan[k][3], Double.parseDouble(dataPenjualan[k][4]));
+                    totalKeseluruhan += Double.parseDouble(dataPenjualan[k][4]);
                 }
             }
-            System.out.printf("\n%-40sRp. %,.2f\n", "Total Harga Penjualan: ", total_harga);
+            System.out.printf("\n%-30sRp. %,.2f\n", "Total Harga Penjualan: ", totalKeseluruhan);
             System.out.println("---- LAPORAN PENJUALAN SELESAI ----");
         }
         
-        static void memilihPembayaran(){
+        static double memilihPembayaran(){
             Scanner sc = new Scanner(System.in);
             for (int iBayar = 0; iBayar < 1;) {
                 // PROSES DATA JENIS PEMBAYARAN
@@ -323,21 +330,23 @@ public class Sketnyadisini{
                     case 1:
                     System.out.print("Masukkan jumlah yang dibayar : ");
                         pembayaran = sc.nextDouble();
-                        kembalian = pembayaran - (fiturKodeVoucher());
+                        kembalian = pembayaran - total_harga;
                         iBayar++;
                         break;
                         // DEBIT
                         case 2:
                         System.out.print("Masukkan jumlah yang dibayar : ");
                         pembayaran = sc.nextDouble();
-                        prosesKembalian(prosesPembayaran(fiturKodeVoucher(), pajak1),pembayaran );
+                        total_harga += (total_harga * pajak1);
+                        kembalian = pembayaran - total_harga;
                         iBayar++;
                         break;
                         // E-Money
                         case 3:
                         System.out.print("Masukkan jumlah yang dibayar : ");
                         pembayaran = sc.nextDouble();
-                        prosesKembalian(prosesPembayaran(fiturKodeVoucher(), pajak2),pembayaran );
+                        total_harga += (total_harga * pajak2);
+                        kembalian = pembayaran - total_harga;
                         iBayar++;
                         break;
                         default:
@@ -350,17 +359,9 @@ public class Sketnyadisini{
                     pesananBelumSelesai[index_pesanan_belum_selesai][2] = String.valueOf(total_harga);
                     index_pesanan_belum_selesai++;
             }
-        }
-        private static double prosesPembayaran(double totHarga, double ppn ){
-            totHarga = ((totHarga * ppn) + totHarga);
-            total_harga = totHarga;
-            return total_harga;
-        }
-
-        private static double prosesKembalian(double total_harga, double pembayaran){
-            kembalian = pembayaran - total_harga;
             return kembalian;
         }
+
         static String[][] pesananBelumSelesai = new String[10][3]; 
         static int index_pesanan_belum_selesai = 0;
 
@@ -385,10 +386,10 @@ public class Sketnyadisini{
             System.out.println("Uang yang dibayarkan\t: " + pembayaran);
             System.out.println("Kembalian\t\t: " + kembalian);
             System.out.println("\n---- TERIMA KASIH ----");
-            total_harga = 0;
+            total_harga = 0; kembalian = 0; pembayaran = 0;diskon = 0;
 
             // TAMPILKAN OPSI OPEN BILL
-            System.out.println("\nApakah Anda ingin membuka kembali tagihan yang belum diselesaikan? (Y/T)");
+            System.out.print("\nApakah Anda ingin membuka kembali tagihan yang belum diselesaikan? (Y/T) : ");
             String pilihan = sc.next();
             if (pilihan.equalsIgnoreCase("Y")) {
                 tampilkanTagihanBelumSelesai();
