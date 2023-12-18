@@ -4,6 +4,7 @@ import java.util.Scanner;
 public class Sketnyadisini{
     
     // VARIABEL GLOBAL
+    static int temp = 0;
     static int index_menu = 0;
     static int suhu_menu;
     static String nama_barang, pelanggan, catatan, voucher;
@@ -49,6 +50,7 @@ public class Sketnyadisini{
         
         String username, password; 
         boolean stop = true;
+        Judul();
         for (int Try = 1; Try <= 3; Try++) {
             System.out.print("Enter Username : ");
             username = sc.nextLine();
@@ -56,12 +58,15 @@ public class Sketnyadisini{
             password = sc.nextLine();
             if (loginAdmin(username, password)) {
                 System.out.println("Login berhasil. Selamat datang, Admin!");
+                System.out.println();
                 break;
             } else if (Try < 3) {
                 System.out.println("Login gagal. Silakan coba lagi.");
+                System.out.println();
             } else if (Try == 3){
                 System.out.println("Anda sudah mencoba sebanyak 3x. Silahkan coba lagi nanti.");
-                sc.close();
+                Penutup();
+                System.exit(0);
             }
         }
         do {
@@ -80,8 +85,15 @@ public class Sketnyadisini{
                 case 3 :
                     fiturLaporanPenjualan();
                     break;
+                case 4 :
+                    System.out.print("\nApakah Anda ingin membuka kembali tagihan yang belum diselesaikan? (Y/T) : ");
+                    String pilihan = sc.next();
+                    if (pilihan.equalsIgnoreCase("Y")) {
+                        tampilkanTagihanBelumSelesai();
+                    }
+                    break;
                 case 0 :
-                    System.out.println("----- THANK YOU !!! -----");
+                    Penutup();
                     stop = false;
                     break;
                 default:
@@ -90,28 +102,54 @@ public class Sketnyadisini{
                 }
         } while (stop);
     }
-    
+        static void Penutup(){
+            System.out.println();
+            for (int i = 0; i <= 70; i++) {
+                System.out.print("=");
+            }
+            System.out.println("\n-------------------------- THANK YOU !!! ------------------------------");
+            for (int i = 0; i <= 70; i++) {
+                System.out.print("=");
+            }
+        }
+        static void Judul (){
+            System.out.println("======================================================================");
+            System.out.println("------------------ WELCOME TO LARAVEL COFFEE SHOP --------------------");
+            System.out.println("======================================================================");
+            System.out.println();
+            
+        }
         private static boolean loginAdmin(String username, String password) {
             return username.equals("admin") && password.equals("123");
         }
         
         public static int pilihFitur(int konfirm){
+            for (int i = 0; i <= 70; i++) {
+                    System.out.print("=");
+                }
             Scanner sc = new Scanner(System.in);
+            System.out.println();
             System.out.println("---------- Pilih Fitur ----------");
             System.out.println("| 1. Menu                       |");
             System.out.println("| 2. Reservasi                  |");
             System.out.println("| 3. Laporan Penjualan          |");
+            System.out.println("| 4. Open Bill                  |");
             System.out.println("| 0. Exit                       |");
             System.out.println("|                               |");
             System.out.println("---------------------------------");
             System.out.print("Pilih Fitur : ");
             konfirm = sc.nextInt();
+            System.out.println();
             return konfirm;
         }
-            
+        
         // DISPLAY MENU
-         public static void menampilkanMenu(){
-            System.out.println(" ------------------------------------------------------- ");
+        public static void menampilkanMenu(){
+            for (int i = 0; i <= 70; i++) {
+                System.out.print("=");
+            }
+            System.out.println();
+            System.out.println(" -------------------------------------------------------");
             System.out.println("|                     LARAVEL COFFEE                    |");
             System.out.println("|                          MENU                         |");
             System.out.println("|-------------------------------------------------------|");
@@ -134,19 +172,18 @@ public class Sketnyadisini{
         }
         
         // INPUT DATA
-        
         static void memilihMenu(){
             int hargaPesanan;
             Scanner sc = new Scanner(System.in);
             for (String a = "Y"; a.equals("Y") || a.equals("y");) {
                 System.out.print("Masukkan Nomor Pesanan : ");
                 menu_item = sc.nextInt();
-                    // System.out.println(menu[menu_item]);
-                    String[] pesananDanHarga = pilihPesananDanHarga(menuDanHarga, menu_item);
-                    String pesananTerpilih = pesananDanHarga[0];
-                    System.out.print("(1) Hot / (2) Ice : ");
-                    getSuhu = sc.nextInt();
-                    do {
+                // System.out.println(menu[menu_item]);
+                String[] pesananDanHarga = pilihPesananDanHarga(menuDanHarga, menu_item);
+                String pesananTerpilih = pesananDanHarga[0];
+                System.out.print("(1) Hot / (2) Ice : ");
+                getSuhu = sc.nextInt();
+                do {
                         if (getSuhu == 1 || getSuhu == 2) {
                             break;
                         }else{
@@ -160,23 +197,24 @@ public class Sketnyadisini{
                     jml_barang = sc.nextInt();
                     total_hargaitem = jml_barang * hargaPesanan;
                     menyimpanPesanan(menu_item,getSuhu);
-                    menampilkanKeranjang();
+                    menampilkanKeranjang(temp);
                     total_harga += total_hargaitem;
                     
-                    System.out.print("Apakah anda mau memesan lagi? (Y/T) : ");
+                    System.out.print("\nApakah anda mau memesan lagi? (Y/T) : ");
                     a = sc.next();
                 }
                 System.out.print("Masukkan nama pelanggan :");
                 pelanggan = sc.next(); 
-                for (int iPelanggan = 0; iPelanggan < index_menu;iPelanggan++) {
+                for (int iPelanggan = temp; iPelanggan < index_menu; iPelanggan++) {
                     dataPenjualan[iPelanggan][0] = pelanggan;    
                 }
             }
 
-        static void menampilkanKeranjang(){
+        static void menampilkanKeranjang(int indikatorSementara){
+            System.out.println();
             System.out.println("Menu Pesanan Anda : ");
-            for (int i = 0; i < index_menu; i++) {
-                System.out.println(dataPenjualan[i][1]+"    x" + dataPenjualan[i][2] + "   |  Rp. " + dataPenjualan[i][4]);
+            for (int i = indikatorSementara; i < index_menu; i++) {
+                System.out.printf("%-20s x%-2s |  Rp. %-10s\n", dataPenjualan[i][1], dataPenjualan[i][2], dataPenjualan[i][4]);
             }
         }
                 
@@ -224,7 +262,8 @@ public class Sketnyadisini{
                 }
                 System.out.println("\n|________________________________________________________|");
             }
-                System.out.print("Pilih Kursi yang ingin dipesan :");
+            do {
+                System.out.print("Pilih Meja yang ingin dipesan : ");
                 pilihMeja = input.nextInt();
                 coba++;
                 for (int i = 0; i < nomor_meja.length; i++) {
@@ -233,10 +272,10 @@ public class Sketnyadisini{
                             System.out.println("Meja " + pilihMeja + " tersedia.");
                             mejaTersedia = true;
                             for (int iTamu = 1; iTamu != jumlah_tamu;) {
-                                System.out.print("Jumlah Pelanggan\t: ");
+                                System.out.print("Jumlah Pelanggan\t\t: ");
                                 jumlah_tamu = input.nextInt();
                                 if (jumlah_tamu <= 5) {
-                                    System.out.println("Jumlah Tamu Yang Akan Duduk: " + jumlah_tamu);
+                                    System.out.println("Jumlah Tamu Yang Akan Duduk : " + jumlah_tamu);
                                     iTamu = jumlah_tamu;
                                 } else {
                                     System.out.println("Mohon Maaf Kapasitas Tempat Duduk Terlalu Banyak");
@@ -249,8 +288,8 @@ public class Sketnyadisini{
                 }
                 if (!mejaTersedia) {
                     System.out.println("Meja " + pilihMeja + " tidak tersedia atau sudah diisi. Silahkan pilih meja lain.");
-                    pilihMeja = input.nextInt(); 
                 }
+            } while (!mejaTersedia && coba <= 4);
             return mejaTersedia;
         }
         
@@ -290,38 +329,47 @@ public class Sketnyadisini{
             } 
             total_harga = total_harga - ( total_harga * diskon);
             System.out.print("Total Harga = " + total_harga);
+            System.out.println();
             return total_harga;
         }
 
         // PROSES DATA LAPORAN PENJUALAN
         static void fiturLaporanPenjualan(){
+            for (int i = 0; i <= 70; i++) {
+                    System.out.print("=");
+            }
             // output laporan penjualan 
-            System.out.println("\n\n---- LAPORAN PENJUALAN ----");
-            System.out.printf("%-20s%-20s%-16s%-18s%s\n", "Nama", "Menu", "Item", "Harga Item(@)", "Total Harga");
+            System.out.println("\n-------------------------- LAPORAN PENJUALAN --------------------------");
+            System.out.printf("%-6s | %-20s | %-4s | %-14s | %-14s\n", "Nama", "Menu", "Item", "Harga Item(@)", "Total Harga");
+            System.out.println("-----------------------------------------------------------------------");
             for (int k = 0; k < dataPenjualan.length; k++) {
                 if (dataPenjualan[k] != null && dataPenjualan[k][0] != null) {
-                    System.out.printf("%-20s%-20s%-16s%-18sRp. %,.2f\n",
-                            dataPenjualan[k][0], dataPenjualan[k][1], dataPenjualan[k][2], dataPenjualan[k][3], Double.parseDouble(dataPenjualan[k][4]));
+                    System.out.printf("%-6s | %-20s | %-4s | %-14s | %-14s\n",
+                    dataPenjualan[k][0], dataPenjualan[k][1], dataPenjualan[k][2], dataPenjualan[k][3], dataPenjualan[k][4]);
                     totalKeseluruhan += Double.parseDouble(dataPenjualan[k][4]);
                 }
             }
-            System.out.printf("\n%-30sRp. %,.2f\n", "Total Harga Penjualan: ", totalKeseluruhan);
-            System.out.println("---- LAPORAN PENJUALAN SELESAI ----");
+            System.out.println("-----------------------------------------------------------------------");
+            System.out.printf("%-48s%-14s\n", "Total Harga Penjualan:", "Rp. " + totalKeseluruhan);
         }
         
         static double memilihPembayaran(){
             Scanner sc = new Scanner(System.in);
             for (int iBayar = 0; iBayar < 1;) {
                 // PROSES DATA JENIS PEMBAYARAN
+                for (int i = 0; i <= 70; i++) {
+                    System.out.print("=");
+                }
                 System.out.println();
-                System.out.println("*********************************");
-                System.out.println("---------------------------------");
+                System.out.println("-------------------------- Jenis Pembayaran --------------------------");
                 System.out.println("Jenis Pembayaran");
                 System.out.println("1. Tunai    ");
                 System.out.println("2. Debit    ");
                 System.out.println("3. E-Money  ");
-                System.out.println("---------------------------------");
-                System.out.println("*********************************");
+                for (int i = 0; i <= 70; i++) {
+                    System.out.print("-");
+                }
+                System.out.println();
                 System.out.print(" Pilih Jenis Pembayaran : ");
                 pilih = sc.nextInt();
                 
@@ -369,12 +417,14 @@ public class Sketnyadisini{
             // OUTPUT STRUK PEMBAYARAN
             Scanner sc = new Scanner(System.in);
             LocalDate date = LocalDate.now();
-            
+            for (int i = 0; i <= 70; i++) {
+                System.out.print("=");
+            }
             System.out.println("");
-            System.out.println("\n\n---- STRUK PEMBELIAN ----");
+            System.out.println("---- STRUK PEMBELIAN ----");
             System.out.println("Tanggal Pembelian\t: " + date);
             System.out.println("Nama Pelanggan\t\t: " + pelanggan + "\n");
-            for (int j = 0; j < index_menu; j++) {
+            for (int j = temp ; j < index_menu; j++) {
                 System.out.println("Nama Barang\t\t: " + dataPenjualan[j][1]);
                 System.out.println("Harga per Item\t\t: " + dataPenjualan[j][3]);
                 System.out.println("Jumlah Barang\t\t: " + dataPenjualan[j][2]);
@@ -387,14 +437,10 @@ public class Sketnyadisini{
             System.out.println("Kembalian\t\t: " + kembalian);
             System.out.println("\n---- TERIMA KASIH ----");
             total_harga = 0; kembalian = 0; pembayaran = 0;diskon = 0;
+            temp = index_menu;
 
-            // TAMPILKAN OPSI OPEN BILL
-            System.out.print("\nApakah Anda ingin membuka kembali tagihan yang belum diselesaikan? (Y/T) : ");
-            String pilihan = sc.next();
-            if (pilihan.equalsIgnoreCase("Y")) {
-                tampilkanTagihanBelumSelesai();
-            }
         }
+        // TAMPILKAN OPSI OPEN BILL
         private static void tampilkanTagihanBelumSelesai() {
         }
 
