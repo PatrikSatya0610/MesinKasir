@@ -131,7 +131,6 @@ public class Sketnyadisini{
             System.out.println("| 1. Menu                       |");
             System.out.println("| 2. Reservasi                  |");
             System.out.println("| 3. Laporan Penjualan          |");
-            System.out.println("| 4. Open Bill                  |");
             System.out.println("| 0. Exit                       |");
             System.out.println("|                               |");
             System.out.println("---------------------------------");
@@ -330,7 +329,7 @@ public class Sketnyadisini{
                     System.out.println("Selamat Anda mendapatkan potongan harga sebesar 10%.");
                 }
             } else {
-                System.out.println("Kode Voucher Tidak Tersedia.");
+                System.out.println("\nKode Voucher Tidak Tersedia.");
             } 
             total_harga = total_harga - ( total_harga * diskon);
             System.out.print("Total Harga = " + total_harga);
@@ -371,7 +370,6 @@ public class Sketnyadisini{
                 System.out.println("1. Tunai    ");
                 System.out.println("2. Debit    ");
                 System.out.println("3. E-Money  ");
-                System.out.println("4. Bayar Nanti");
                 for (int i = 0; i <= 70; i++) {
                     System.out.print("-");
                 }
@@ -403,8 +401,6 @@ public class Sketnyadisini{
                         kembalian = pembayaran - total_harga;
                         iBayar++;
                         break;
-                    case 4:
-                    break;
                     default:
                     System.out.println("Maaf, Silahkan pilih angka yang sesuai.");
                     break;
