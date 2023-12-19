@@ -11,6 +11,7 @@ public class Sketnyadisini{
     static String nama_pelanggan, nomor_kontak, nama_pegawai;
     static double total_harga = 0,kembalian = 0, pembayaran = 0, diskon = 0, pajak1 = 0.05, pajak2 = 0.01;
     static double totalKeseluruhan = 0;
+    static int index_pesanan_belum_selesai = 0;
     static int jml_barang = 0, harga_barang = 0, pilih;
     static int menu_item;
     static int getSuhu;
@@ -38,6 +39,7 @@ public class Sketnyadisini{
         {"Japanese","20000"}
     };
     static String[] suhu = {" Hot"," Ice"};
+    static String[][] pesananBelumSelesai = new String[10][4]; 
     static String[][] dataPenjualan = new String[25][5];
     static double[] harga_item = new double[10];
     static int[][] nomor_meja = new int[4][8];
@@ -86,11 +88,7 @@ public class Sketnyadisini{
                     fiturLaporanPenjualan();
                     break;
                 case 4 :
-                    System.out.print("\nApakah Anda ingin membuka kembali tagihan yang belum diselesaikan? (Y/T) : ");
-                    String pilihan = sc.next();
-                    if (pilihan.equalsIgnoreCase("Y")) {
-                        tampilkanTagihanBelumSelesai();
-                    }
+                    tampilkanTagihanBelumSelesai();
                     break;
                 case 0 :
                     Penutup();
@@ -197,8 +195,8 @@ public class Sketnyadisini{
                     jml_barang = sc.nextInt();
                     total_hargaitem = jml_barang * hargaPesanan;
                     menyimpanPesanan(menu_item,getSuhu);
-                    menampilkanKeranjang(temp);
                     total_harga += total_hargaitem;
+                    menampilkanKeranjang(temp);
                     
                     System.out.print("\nApakah anda mau memesan lagi? (Y/T) : ");
                     a = sc.next();
@@ -216,6 +214,8 @@ public class Sketnyadisini{
             for (int i = indikatorSementara; i < index_menu; i++) {
                 System.out.printf("%-20s x%-2s |  Rp. %-10s\n", dataPenjualan[i][1], dataPenjualan[i][2], dataPenjualan[i][4]);
             }
+            System.out.println("---------------");
+            System.out.printf("Total\t\t\t |  Rp. %-20s\n",total_harga);
         }
                 
         private static String[] pilihPesananDanHarga (String[][] daftarPesananHarga, int nomorPesanan) {
@@ -312,8 +312,13 @@ public class Sketnyadisini{
         
         // PROSES DATA STRUK PEMBAYARAN
         static double fiturKodeVoucher(double hargaDibayar){
+            for (int i = 0; i <= 70; i++) {
+                System.out.print("=");
+            }
             // PROSES DATA VOUCHER
             Scanner sc = new Scanner(System.in);
+            System.out.println("\n\"LRVL03\"");
+            System.out.println("Dapatkan diskon 25% untuk pembelian lebih dari Rp100.000 dan diskon 10%\nuntuk pembelian kurang dari Rp100.000!!\n");
             System.out.println("Masukkan Kode Voucher : ");
             voucher = sc.next();
             if (voucher.equals("LRVL03")) {
@@ -350,7 +355,7 @@ public class Sketnyadisini{
                 }
             }
             System.out.println("-----------------------------------------------------------------------");
-            System.out.printf("%-48s%-14s\n", "Total Harga Penjualan:", "Rp. " + totalKeseluruhan);
+            System.out.printf("%-48s%-14s\n", "Total Harga Penjualan:", "\tRp. " + totalKeseluruhan);
         }
         
         static double memilihPembayaran(){
@@ -366,53 +371,57 @@ public class Sketnyadisini{
                 System.out.println("1. Tunai    ");
                 System.out.println("2. Debit    ");
                 System.out.println("3. E-Money  ");
+                System.out.println("4. Bayar Nanti");
                 for (int i = 0; i <= 70; i++) {
                     System.out.print("-");
                 }
                 System.out.println();
-                System.out.print(" Pilih Jenis Pembayaran : ");
+                System.out.print("Pilih Jenis Pembayaran : ");
                 pilih = sc.nextInt();
                 
                 switch (pilih) {
                     // TUNAI
                     case 1:
-                    System.out.print("Masukkan jumlah yang dibayar : ");
+                        System.out.print("Masukkan Nominal : ");
                         pembayaran = sc.nextDouble();
                         kembalian = pembayaran - total_harga;
                         iBayar++;
                         break;
                         // DEBIT
-                        case 2:
-                        System.out.print("Masukkan jumlah yang dibayar : ");
+                    case 2:
+                        System.out.print("Masukkan Nominal : ");
                         pembayaran = sc.nextDouble();
                         total_harga += (total_harga * pajak1);
                         kembalian = pembayaran - total_harga;
                         iBayar++;
                         break;
                         // E-Money
-                        case 3:
-                        System.out.print("Masukkan jumlah yang dibayar : ");
+                    case 3:
+                        System.out.print("Masukkan Nominal : ");
                         pembayaran = sc.nextDouble();
                         total_harga += (total_harga * pajak2);
                         kembalian = pembayaran - total_harga;
                         iBayar++;
                         break;
-                        default:
-                        System.out.println("Maaf, Silahkan pilih angka yang sesuai.");
-                        break;
+                    case 4:
+                    break;
+                    default:
+                    System.out.println("Maaf, Silahkan pilih angka yang sesuai.");
+                    break;
                 }
-                // Simpan informasi pembelian yang belum diselesaikan
-                    pesananBelumSelesai[index_pesanan_belum_selesai][0] = pelanggan;
-                    pesananBelumSelesai[index_pesanan_belum_selesai][1] = nomor_kontak;
-                    pesananBelumSelesai[index_pesanan_belum_selesai][2] = String.valueOf(total_harga);
-                    index_pesanan_belum_selesai++;
             }
             return kembalian;
         }
-
-        static String[][] pesananBelumSelesai = new String[10][3]; 
-        static int index_pesanan_belum_selesai = 0;
-
+        
+        static void fiturOpenBill(int menu_item, int getSuhu){
+            pesananBelumSelesai[index_pesanan_belum_selesai][0] = pelanggan;
+            pesananBelumSelesai[index_pesanan_belum_selesai][1] = menuDanHarga[menu_item - 1][0] + suhu[getSuhu-1];
+            pesananBelumSelesai[index_pesanan_belum_selesai][2] = String.valueOf(jml_barang);
+            pesananBelumSelesai[index_pesanan_belum_selesai][3] = String.valueOf(total_harga);
+            index_pesanan_belum_selesai++;
+        }
+        // Simpan informasi pembelian yang belum diselesaikan
+        
         static void menampilkanStrukPembayaran(){
             // OUTPUT STRUK PEMBAYARAN
             Scanner sc = new Scanner(System.in);
@@ -442,6 +451,15 @@ public class Sketnyadisini{
         }
         // TAMPILKAN OPSI OPEN BILL
         private static void tampilkanTagihanBelumSelesai() {
+            System.out.println("\n-------------------------- LIST OPEN BILL --------------------------");
+            System.out.printf("%-6s | %-20s | %-4s | %-14s\n", "Nama", "Menu", "Item", "Total Harga");
+            System.out.println("-----------------------------------------------------------------------");
+            for (int k = 0; k < dataPenjualan.length; k++) {
+                if (dataPenjualan[k] != null && dataPenjualan[k][0] != null) {
+                    System.out.printf("%-6s | %-20s | %-4s | %-14s\n",
+                    pesananBelumSelesai[k][0], pesananBelumSelesai[k][1], pesananBelumSelesai[k][2], pesananBelumSelesai[k][3]);
+                }
+            }
         }
 
         static void initNomorMeja(){
