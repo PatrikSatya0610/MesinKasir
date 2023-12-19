@@ -8,7 +8,7 @@ Anggota :
 
 Deskripsi :
 
-Proyek ini bertujuan untuk membuat sebuah sistem kasir sederhana yang dapat digunakan oleh bisnis kecil atau toko kecil untuk mencatat transaksi penjualan, menghitung total pembayaran, dan mengelola inventaris mereka. Sistem kasir sederhana ini dirancang untuk memenuhi kebutuhan bisnis kecil yang tidak memerlukan fitur yang sangat kompleks. Ini akan membantu mereka mengelola transaksi penjualan dan inventaris dengan lebih efisien. Sistem ini akan dikembangkan menggunakan bahasa pemrograman Java. 
+Proyek ini bertujuan untuk membuat sebuah sistem pelayanan Coffee Shop yang dapat digunakan oleh pelaku bisnis kecil dan menengah untuk mencatat transaksi penjualan, menghitung total pembayaran, Reservasi tempat duduk, dan pemberian diskon dengan voucher. Sistem pelayanan Coffee Shop ini dirancang untuk memenuhi kebutuhan bisnis kecil dan menengah yang tidak memerlukan fitur yang sangat kompleks. Ini akan membantu mereka mengelola transaksi penjualan yang effisien. Sistem ini akan dikembangkan menggunakan bahasa pemrograman Java. 
 
 
 Ruang Lingkup Proyek :
@@ -19,10 +19,7 @@ Ruang Lingkup Proyek :
     •	Menampilkan list produk dalam bentuk menu termasuk harga,kode, dan ketersediaan.
 
 2	Manajemen Produk
-    •	Membuat daftar produk yang dapat dijual, termasuk nama produk, kode produk, harga, dan jumlah stok.
-    •	Memungkinkan kasir untuk menambah, mengedit, atau menghapus produk dari inventaris.
-    •	Mengurangi jumlah stok produk setelah setiap transaksi penjualan.
-    •	Memberikan peringatan jika stok produk mencapai batas minimum.
+    •	Membuat daftar produk yang dapat dijual, termasuk nama produk, kode produk, harga.
 
 3	Proses Transaksi
     •	Memungkinkan kasir untuk menambahkan produk ke keranjang belanja dengan memasukkan kode produk dan jumlah yang dibeli.
@@ -35,4 +32,4 @@ Ruang Lingkup Proyek :
     •	Memungkinkan kasir untuk melihat laporan penjualan harian.
 
 5	Dokumentasi Pengguna
-    •	Menyediakan dokumentasi detil tentang cara menggunakan sistem kasir, termasuk langkah-langkah dasar, spesifikasi, dan fitur-fiturnya.
+    •	Menyediakan dokumentasi detil tentang cara menggunakan sistem pelayanan Coffe Shop, termasuk langkah-langkah dasar, spesifikasi, dan       fitur-fiturnya.
